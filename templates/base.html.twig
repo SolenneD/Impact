@@ -6,7 +6,25 @@
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
+        {% block header %}
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/coach">Nos coachs</a></li>
+                <li><a href="/connect">Se connecter</a></li>
+            </ul>
+        {% endblock %}
+
+
+
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
+
+
+
+        {% block footer %}
+            {{ form_start(form) }}
+            {{ form_row(form) }}
+            {{ form_rest(form) }}
+        {% endblock %}
     </body>
 </html>
