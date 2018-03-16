@@ -37,22 +37,132 @@ class Utilisateur
      */
     protected $mdp;
     /**
-     * @ManyToMany(targetEntity="Objectif")
-     * @JoinTable(name="utilisateur_objectif",
-     *      joinColumns={@JoinColumn(name="utilisateur_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@JoinColumn(name="objectif_id", referencedColumnName="id", unique=true)}
+     * @ORM\ManyToMany(targetEntity="Objectif")
+     * @ORM\JoinTable(name="utilisateur_objectif",
+     *      joinColumns={@ORM\JoinColumn(name="utilisateur_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="objectif_id", referencedColumnName="id", unique=true)}
      *      )
      */
     protected $objectif;
 
     /**
-     * @ManyToMany(targetEntity="Cours")
-     * @JoinTable(name="utilisateur_cours",
-     *      joinColumns={@JoinColumn(name="utilisateur_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@JoinColumn(name="cours_id", referencedColumnName="id", unique=true)}
+     * @ORM\ManyToMany(targetEntity="Cours")
+     * @ORM\JoinTable(name="utilisateur_cours",
+     *      joinColumns={@ORM\JoinColumn(name="utilisateur_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="cours_id", referencedColumnName="id", unique=true)}
      *      )
      */
     protected $cours;
 
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * @param mixed $nom
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param mixed $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMail()
+    {
+        return $this->mail;
+    }
+
+    /**
+     * @param mixed $mail
+     */
+    public function setMail($mail)
+    {
+        $this->mail = $mail;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMdp()
+    {
+        return $this->mdp;
+    }
+
+    /**
+     * @param mixed $mdp
+     */
+    public function setMdp($mdp)
+    {
+        $this->mdp = $mdp;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getObjectif()
+    {
+        return $this->objectif;
+    }
+
+    /**
+     * @param mixed $objectif
+     */
+    public function setObjectif($objectif)
+    {
+        $this->objectif = $objectif;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCours()
+    {
+        return $this->cours;
+    }
+
+    /**
+     * @param mixed $cours
+     */
+    public function setCours($cours)
+    {
+        $this->cours = $cours;
+    }
 }
