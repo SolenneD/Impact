@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        {{ form_start(form) }}
+        {{ form_rom(form) }}
+        {{ form_rest(form) }}
+
+        <button type="submit">Inscrire!</button>
+
+    </body>
+</html>
