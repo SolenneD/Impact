@@ -5,9 +5,9 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\AdminRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\TrainingRepository")
  */
-class Admin
+class Training
 {
     /**
      * @ORM\Id()
@@ -18,21 +18,25 @@ class Admin
     /**
      * @ORM\Column(type="string")
      */
-    protected $name;
+    protected $title;
+
+    /**
+     * @ORM\Column(type="date")
+     */
+    protected $day;
+
+    /**
+     * @ORM\Column(type="time")
+     */
+    protected $hour;
 
     /**
      * @ORM\Column(type="string")
      */
-    protected $lastname;
+    protected $periode;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="integer")
      */
-    protected $email;
-
-    /**
-     * @ORM\Column(type="string")
-     */
-    protected $password;
-    // add your own fields
+    protected $intensite;
 }

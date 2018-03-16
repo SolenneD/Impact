@@ -1,42 +1,38 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: B3 DEV
- * Date: 15/03/2018
- * Time: 11:56
- */
 
 namespace App\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
 
-class coach
+/**
+ * @ORM\Entity(repositoryClass="App\Repository\CoachRepository")
+ */
+class Coach
 {
     /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
+     * @ORM\Id()
+     * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
     private $id;
-
     /**
-     * @ORM\Column(type="varchar")
-     */
-    protected $nom;
-
-    /**
-     * @ORM\Column(type="varchar")
+     * @ORM\Column(type="string")
      */
     protected $name;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="string")
      */
-    protected $mail;
+    protected $lastName;
 
     /**
-     * @ORM\OneToMany(targetEntity="Cours", mappedBy="coach")
+     * @ORM\Column(type="string")
      */
-    protected $cours;
+    protected $email;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Training", mappedBy="coach")
+     */
+    protected $training;
 
 }

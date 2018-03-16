@@ -5,9 +5,9 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\AdminRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\UsersRepository")
  */
-class Admin
+class Users
 {
     /**
      * @ORM\Id()
@@ -15,6 +15,7 @@ class Admin
      * @ORM\Column(type="integer")
      */
     private $id;
+
     /**
      * @ORM\Column(type="string")
      */
@@ -34,5 +35,14 @@ class Admin
      * @ORM\Column(type="string")
      */
     protected $password;
-    // add your own fields
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Objectif")
+     * @ORM\JoinTable(name="users_objectifs",
+     *     joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
+     *     inverseJoinColumns={ORM\@JoinColumn(name="objectif_id",referenceColumnName="id")}
+     *     )
+     */
+    protected $goals;
+
 }
