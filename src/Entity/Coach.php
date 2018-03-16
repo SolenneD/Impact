@@ -31,6 +31,11 @@ class Coach
     protected $email;
 
     /**
+     * @ORM\Column(type="text")
+     */
+    protected $bio;
+
+    /**
      * @ORM\OneToMany(targetEntity="Training", mappedBy="coach")
      */
     protected $training;

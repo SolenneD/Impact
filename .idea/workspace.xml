@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ffa40a59-7854-4c7e-ac00-3ef8b117cefb" name="Default" comment="entity">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Training.php" afterPath="$PROJECT_DIR$/src/Entity/Training.php" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Users.php" afterPath="$PROJECT_DIR$/src/Entity/Users.php" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Coach.php" afterPath="$PROJECT_DIR$/src/Entity/Coach.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -31,8 +29,8 @@
       <file leaf-file-name="Coach.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Entity/Coach.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="33" column="39" lean-forward="false" selection-start-line="33" selection-start-column="39" selection-end-line="33" selection-end-column="39" />
+            <state relative-caret-position="301">
+              <caret line="34" column="7" lean-forward="true" selection-start-line="34" selection-start-column="7" selection-end-line="34" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -86,10 +84,10 @@
         <option value="$PROJECT_DIR$/src/Entity/Admin.php" />
         <option value="$PROJECT_DIR$/src/Entity/Cours.php" />
         <option value="$PROJECT_DIR$/src/Entity/Users2.php" />
-        <option value="$PROJECT_DIR$/src/Entity/Coach.php" />
         <option value="$PROJECT_DIR$/src/Entity/Objectif.php" />
         <option value="$PROJECT_DIR$/src/Entity/Users.php" />
         <option value="$PROJECT_DIR$/src/Entity/Training.php" />
+        <option value="$PROJECT_DIR$/src/Entity/Coach.php" />
       </list>
     </option>
   </component>
@@ -257,7 +255,7 @@
       <workItem from="1521121102750" duration="591000" />
       <workItem from="1521121695353" duration="245000" />
       <workItem from="1521121952913" duration="6043000" />
-      <workItem from="1521187091301" duration="1859000" />
+      <workItem from="1521187091301" duration="2488000" />
     </task>
     <task id="LOCAL-00001" summary="entity">
       <created>1521121792149</created>
@@ -270,7 +268,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8738000" />
+    <option name="totallyTimeSpent" value="9367000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="960" y="0" width="960" height="1040" extended-state="0" />
@@ -429,8 +427,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/Coach.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="33" column="39" lean-forward="false" selection-start-line="33" selection-start-column="39" selection-end-line="33" selection-end-column="39" />
+        <state relative-caret-position="301">
+          <caret line="34" column="7" lean-forward="true" selection-start-line="34" selection-start-column="7" selection-end-line="34" selection-end-column="7" />
           <folding />
         </state>
       </provider>
