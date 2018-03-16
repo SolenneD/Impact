@@ -38,11 +38,14 @@ class Users
 
     /**
      * @ORM\ManyToMany(targetEntity="Objectif")
-     * @ORM\JoinTable(name="users_objectifs",
-     *     joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
-     *     inverseJoinColumns={ORM\@JoinColumn(name="objectif_id",referenceColumnName="id")}
-     *     )
+     * @ORM\JoinTable(name="users_objectifs",)
      */
     protected $goals;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Training")
+     * @ORM\JoinTable(name="users_traning",)
+     */
+    protected $training;
 
 }

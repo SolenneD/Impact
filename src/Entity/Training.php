@@ -39,4 +39,9 @@ class Training
      * @ORM\Column(type="integer")
      */
     protected $intensite;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Coach", inversedBy="training")
+     */
+    protected $coach;
 }
