@@ -14,9 +14,18 @@ security:
         admin:
             pattern: ^/admin
             anonymous: true
-            http_basic: true
+            http_basic: false
         main:
             anonymous: true
+            form_login:
+                login_path: /login
+                check_path: /login_check
+                default_target_path: /index
+            logout:
+                path:   /logout
+                target: /
+
+
 
     access_control:
         - { path: ^/admin, roles: ROLE_ADMIN }

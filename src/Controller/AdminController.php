@@ -14,6 +14,7 @@ class AdminController extends Controller
     {
         return $this->render('admin/index.html.twig', [
             'controller_name' => 'AdminController',
+            'path' => '/logout'
         ]);
     }
 
