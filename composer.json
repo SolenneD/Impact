@@ -3,6 +3,7 @@
     "license": "proprietary",
     "require": {
         "php": "^7.0.8",
+        "easycorp/easyadmin-bundle": "^1.17",
         "sensio/framework-extra-bundle": "^5.1",
         "symfony/console": "^3.4",
         "symfony/debug-pack": "^1.0",
@@ -14,6 +15,7 @@
         "symfony/orm-pack": "^1.0",
         "symfony/security-bundle": "^3.4",
         "symfony/twig-bundle": "^3.4",
+        "symfony/web-server-bundle": "^3.4",
         "symfony/yaml": "^3.4"
     },
     "require-dev": {
