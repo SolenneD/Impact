@@ -38,13 +38,13 @@ class Users
 
     /**
      * @ORM\ManyToMany(targetEntity="Objectif")
-     * @ORM\JoinTable(name="users_objectifs",)
+     * @ORM\JoinTable(name="users_objectif",)
      */
     protected $goals;
 
     /**
      * @ORM\ManyToMany(targetEntity="Training")
-     * @ORM\JoinTable(name="users_traning",)
+     * @ORM\JoinTable(name="users_training",)
      */
     protected $training;
 

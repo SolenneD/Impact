@@ -2,9 +2,12 @@
 
 namespace App\Controller;
 
+use App\Repository\TrainingRepository;
 use App\Repository\UsersRepository;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+
 
 class SiteController extends Controller
 {
@@ -18,11 +21,20 @@ class SiteController extends Controller
         ]);
     }
     /**
-     * @Route("/test", name="site")
-     */
-    public function test(UsersRepository $usersRepository)
+    * @Route("/info", name="site")
+    */
+    public function InfoUser(UsersRepository $usersRepository)
     {
         $posts = $usersRepository->findAll();
-        return $this->render('site/test.html.twig', ['users'=>$posts]);
+        return $this->render('site/InfoUser.html.twig', ['users'=>$posts]);
+    }
+    /**
+     * @Route("/training", name="site")
+     */
+    public function training(TrainingRepository $trainingRepository)
+    {
+        $tra = $trainingRepository->findAll();
+
+        return $this->render('site/training.html.twig', array('viewTra' => $tra));
     }
 }
