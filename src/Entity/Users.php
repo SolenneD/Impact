@@ -61,6 +61,7 @@ class Users implements UserInterface
      */
     protected $training;
 
+
     /**
      * @return mixed
      */
@@ -212,8 +213,8 @@ class Users implements UserInterface
     public function getRoles()
     {
         // TODO: Implement getRoles() method.
+        return array('ROLE_USER');
     }
-
 
     /**
      * Removes sensitive data from the user.
