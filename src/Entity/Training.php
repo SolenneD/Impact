@@ -44,4 +44,120 @@ class Training
      * @ORM\ManyToOne(targetEntity="Coach", inversedBy="training")
      */
     protected $coach;
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * @param mixed $title
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDay()
+    {
+        return $this->day;
+    }
+
+    /**
+     * @param mixed $day
+     */
+    public function setDay($day)
+    {
+        $this->day = $day;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getHour()
+    {
+        return $this->hour;
+    }
+
+    /**
+     * @param mixed $hour
+     */
+    public function setHour($hour)
+    {
+        $this->hour = $hour;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPeriode()
+    {
+        return $this->periode;
+    }
+
+    /**
+     * @param mixed $periode
+     */
+    public function setPeriode($periode)
+    {
+        $this->periode = $periode;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIntensite()
+    {
+        return $this->intensite;
+    }
+
+    /**
+     * @param mixed $intensite
+     */
+    public function setIntensite($intensite)
+    {
+        $this->intensite = $intensite;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCoach()
+    {
+        return $this->coach;
+    }
+
+    /**
+     * @param mixed $coach
+     */
+    public function setCoach($coach)
+    {
+        $this->coach = $coach;
+    }
+    public function __toString() {
+        return $this->title;
+    }
+
 }
