@@ -136,4 +136,8 @@ class Coach
         $this->training = $training;
     }
 
+
+    public function __toString() {
+        return $this->name;
+    }
 }
