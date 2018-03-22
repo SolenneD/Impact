@@ -31,6 +31,11 @@ class Coach
     protected $email;
 
     /**
+     * @ORM\Column(type="text")
+     */
+    protected $bio;
+
+    /**
      * @ORM\OneToMany(targetEntity="Training", mappedBy="coach")
      */
     protected $training;
@@ -102,6 +107,22 @@ class Coach
     /**
      * @return mixed
      */
+    public function getBio()
+    {
+        return $this->bio;
+    }
+
+    /**
+     * @param mixed $bio
+     */
+    public function setBio($bio)
+    {
+        $this->bio = $bio;
+    }
+
+    /**
+     * @return mixed
+     */
     public function getTraining()
     {
         return $this->training;
@@ -115,4 +136,8 @@ class Coach
         $this->training = $training;
     }
 
+
+    public function __toString() {
+        return $this->name;
+    }
 }

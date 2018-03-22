@@ -10,11 +10,16 @@
 
 <div class="example-wrapper">
     <h1>Hello {{ controller_name }}! ✅</h1>
+    <p>C'est la page de la gestion des coach par les admins sa mère</p>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>src/Controller/SiteController.php</code></li>
-        <li>Your template at <code>templates/site/index.html.twig</code></li>
-    </ul>
+    {{ form_start(form) }}
+    {{ form_row(form.name) }}
+    {{ form_row(form.lastname) }}
+    {{ form_row(form.email) }}
+    {{ form_row(form.bio) }}
+
+    <button type="submit">Ajouter</button>
+    {{ form_end(form) }}
+
 </div>
 {% endblock %}

@@ -3,11 +3,16 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UsersRepository")
+ * @UniqueEntity(fields="email", message="Email already taken")
+ * @UniqueEntity(fields="username", message="Username already taken")
  */
-class Users
+class Users implements UserInterface
 {
     /**
      * @ORM\Id()
@@ -17,9 +22,10 @@ class Users
     private $id;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", unique=true)
      */
-    protected $name;
+    protected $username;
+
 
     /**
      * @ORM\Column(type="string")
@@ -27,24 +33,31 @@ class Users
     protected $lastname;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", unique=true)
      */
     protected $email;
 
     /**
-     * @ORM\Column(type="string")
+     * @Assert\NotBlank()
+     * @Assert\Length(max=4096)
+     */
+    protected $plainPassword;
+
+
+    /**
+     * @ORM\Column(type="string", length=64, unique=true)
      */
     protected $password;
 
     /**
      * @ORM\ManyToMany(targetEntity="Objectif")
-     * @ORM\JoinTable(name="users_objectif",)
+     * @ORM\JoinTable(name="users_objectifs",)
      */
     protected $goals;
 
     /**
      * @ORM\ManyToMany(targetEntity="Training")
-     * @ORM\JoinTable(name="users_training",)
+     * @ORM\JoinTable(name="users_traning",)
      */
     protected $training;
 
@@ -67,17 +80,17 @@ class Users
     /**
      * @return mixed
      */
-    public function getName()
+    public function getUsername()
     {
-        return $this->name;
+        return $this->username;
     }
 
     /**
-     * @param mixed $name
+     * @param mixed $username
      */
-    public function setName($name)
+    public function setUsername($username)
     {
-        $this->name = $name;
+        $this->username = $username;
     }
 
     /**
@@ -110,6 +123,22 @@ class Users
     public function setEmail($email)
     {
         $this->email = $email;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPlainPassword()
+    {
+        return $this->plainPassword;
+    }
+
+    /**
+     * @param mixed $plainPassword
+     */
+    public function setPlainPassword($plainPassword)
+    {
+        $this->plainPassword = $plainPassword;
     }
 
     /**
@@ -160,6 +189,40 @@ class Users
         $this->training = $training;
     }
 
+    public function getSalt(){
+        return null;
+    }
+
+    /**
+     * Returns the roles granted to the user.
+     *
+     * <code>
+     * public function getRoles()
+     * {
+     *     return array('ROLE_USER');
+     * }
+     * </code>
+     *
+     * Alternatively, the roles might be stored on a ``roles`` property,
+     * and populated in any number of different ways when the user object
+     * is created.
+     *
+     * @return (Role|string)[] The user roles
+     */
+    public function getRoles()
+    {
+        // TODO: Implement getRoles() method.
+    }
 
 
+    /**
+     * Removes sensitive data from the user.
+     *
+     * This is important if, at any given point, sensitive information like
+     * the plain-text password is stored on this object.
+     */
+    public function eraseCredentials()
+    {
+        // TODO: Implement eraseCredentials() method.
+    }
 }
