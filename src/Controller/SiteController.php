@@ -2,6 +2,17 @@
 
 namespace App\Controller;
 
+use App\Entity\Coach;
+use App\Entity\Event;
+use App\Entity\Training;
+use App\Form\CanceledTrainingType;
+use App\Form\CoachType;
+use App\Form\EventType;
+use App\Form\TrainingType;
+use App\Repository\CoachRepository;
+use App\Repository\EventRepository;
+use App\Repository\TrainingRepository;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -19,18 +30,23 @@ class SiteController extends Controller
     /**
      * @Route("/training", name="training")
      */
-    public function training()
+    public function training(TrainingRepository $trainingRepository, CoachRepository $coachRepository)
     {
+        $trainings = $trainingRepository->findAll();
+
         return $this->render('site/cours.html.twig', [
-            'controller_name' => 'SiteController',
+            'trainings'=>$trainings,
+            'controller_name' => 'SiteController'
         ]);
     }
     /**
      * @Route("/team", name="team")
      */
-    public function team()
+    public function team(CoachRepository $coachRepository)
     {
+        $coachs = $coachRepository->findAll();
         return $this->render('site/team.html.twig', [
+            'coachs'=>$coachs,
             'controller_name' => 'SiteController',
         ]);
     }
@@ -38,9 +54,11 @@ class SiteController extends Controller
     /**
      * @Route("/event", name="event")
      */
-    public function event()
+    public function event(EventRepository $eventRepository)
     {
+        $events = $eventRepository->findAll();
         return $this->render('site/event.html.twig', [
+            'events' => $events,
             'controller_name' => 'SiteController',
         ]);
     }
@@ -68,20 +86,122 @@ class SiteController extends Controller
     /**
      * @Route("/admin/gestiondescours", name="gestiondescours")
      */
-    public function gestioncours()
+    public function gestioncours(Request $request, TrainingRepository $trainingRepository)
     {
+        $trainings = $trainingRepository->findAll();
+
+        $training = new Training();
+        $form = $this->createForm(TrainingType::class, $training);
+
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()){ //si form envoyer et valide
+            $training->setIsCanceled(0);
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($training);
+            $entityManager->flush(); //envoie dans la base de donnée
+
+            return $this->redirectToRoute('training');
+        }
+
         return $this->render('site/admingestiondescours.html.twig', [
+            'form' => $form->createView(),
+            'trainings'=>$trainings,
             'controller_name' => 'SiteController',
         ]);
     }
+
+    /**
+     * @Route("/admin/gestiondescours/{id}", name="updatecours")
+     */
+    public function updateCours($id)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $training = $entityManager->getRepository(Training::class)->find($id);
+
+        if (!$training) {
+            throw $this->createNotFoundException(
+                'No product found for id '.$id
+            );
+        }
+
+//        if($training->getIsCanceled() == 0){} //vérifier si le isCanceled est à 0
+        $training->setIsCanceled(1);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('gestiondescours');
+    }
+
     /**
      * @Route("/admin/gestiondescoachs", name="gestiondescoach")
      */
-    public function gestioncoach ()
+    public function gestioncoach (Request $request)
     {
+        $coach = new Coach();
+        $form = $this->createForm(CoachType::class, $coach);
+
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()){ //si form envoyer et valide
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($coach);
+            $entityManager->flush(); //envoie dans la base de donnée
+
+            return $this->redirectToRoute('team');
+        }
+
         return $this->render('site/admingestiondescoachs.html.twig', [
+            'form' => $form->createView(),
             'controller_name' => 'SiteController',
         ]);
+    }
+
+    /**
+     * @Route("/admin/gestiondesevenements", name="gestiondesevenements")
+     */
+    public function gestionevent(Request $request, EventRepository $eventRepository)
+    {
+        $events = $eventRepository->findAll();
+        $event = new Event();
+        $form = $this->createForm(EventType::class, $event);
+
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()){
+            $event->setIsCanceled(0);
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($event);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('event');
+        }
+
+        return $this->render('site/admingestiondesevenement.html.twig', [
+            'form' => $form->createView(),
+            'events' => $events,
+            'controller_name' => 'SiteController',
+        ]);
+    }
+
+    /**
+     * @Route("/admin/gestiondesevenements/{id}", name="updateevent")
+     */
+    public function updateEvent($id)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $training = $entityManager->getRepository(Training::class)->find($id);
+
+        if (!$training) {
+            throw $this->createNotFoundException(
+                'No product found for id '.$id
+            );
+        }
+
+//        if($training->getIsCanceled() == 0){} //vérifier si le isCanceled est à 0
+        $training->setIsCanceled(1);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('gestiondesevenements');
     }
 
 }

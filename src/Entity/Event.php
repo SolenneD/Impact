@@ -5,16 +5,17 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\TrainingRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\EventRepository")
  */
-class Training
+class Event
 {
     /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
+     * @ORM\Id
+     * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
     private $id;
+
     /**
      * @ORM\Column(type="string")
      */
@@ -28,27 +29,17 @@ class Training
     /**
      * @ORM\Column(type="time")
      */
-    protected $hour;
+    protected  $hour;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="text")
      */
-    protected $periode;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    protected $intensite;
+    protected $description;
 
     /**
      * @ORM\Column(type="boolean", options={"default":false})
      */
     protected $isCanceled;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Coach", inversedBy="training")
-     */
-    protected $coach;
 
     /**
      * @return mixed
@@ -117,33 +108,17 @@ class Training
     /**
      * @return mixed
      */
-    public function getPeriode()
+    public function getDescription()
     {
-        return $this->periode;
+        return $this->description;
     }
 
     /**
-     * @param mixed $periode
+     * @param mixed $description
      */
-    public function setPeriode($periode)
+    public function setDescription($description)
     {
-        $this->periode = $periode;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getIntensite()
-    {
-        return $this->intensite;
-    }
-
-    /**
-     * @param mixed $intensite
-     */
-    public function setIntensite($intensite)
-    {
-        $this->intensite = $intensite;
+        $this->description = $description;
     }
 
     /**
@@ -160,24 +135,5 @@ class Training
     public function setIsCanceled($isCanceled)
     {
         $this->isCanceled = $isCanceled;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getCoach()
-    {
-        return $this->coach;
-    }
-
-    /**
-     * @param mixed $coach
-     */
-    public function setCoach($coach)
-    {
-        $this->coach = $coach;
-    }
-    public function __toString() {
-        return $this->title;
     }
 }

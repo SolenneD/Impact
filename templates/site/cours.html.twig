@@ -6,11 +6,40 @@
 <style>
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    table tr:nth-child(odd){background-color: #e7e0e7;}
+    table tr:nth-child(even){background-color: #aea9ae;}
+    table tr th{background-color: #373537; color: white;}
+    table tr td, table tr th {padding: 0 6px}
+    table tr td:first-child{font-weight: bold}
 </style>
 
 <div class="example-wrapper">
     <h1>Hello {{ controller_name }}! ✅</h1>
     <p>C'est la page des cours sa mère</p>
 
+    <table>
+        <tr>
+            <th></th>
+            <th>Cours</th>
+            <th>Coach</th>
+            <th>Date</th>
+            <th>Heure</th>
+            <th>Durée</th>
+            <th>Intensité</th>
+            <th>Réserver</th>
+        </tr>
+        {% for training in trainings %}
+            <tr>
+                <td>{{ training.isCanceled ? 'Annulé' : ''}}</td>
+                <td>{{ training.title }}</td>
+                <td>{{ training.coach != null ? training.coach.name : '' }}</td>
+                <td>{{ training.day|date('d') }}</td>
+                <td>{{ training.hour|date('H:i') }}</td>
+                <td>{{ training.periode }}min</td>
+                <td>{{ training.intensite }}</td>
+                <td>Je réserve</td>
+            </tr>
+        {% endfor %}
+    </table>
 </div>
 {% endblock %}
