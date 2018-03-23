@@ -7,19 +7,21 @@
     </head>
     <body>
         <h1>Profil</h1>
+
+    <p>{{ app.user.username }}</p>
+        <p>{{ app.user.lastname }}</p>
         <table>
             <tr>
-                <td>Username</td>
-                <td>Lastname</td>
-                <td>Email</td>
+                <td>cours</td>
             </tr>
-            {% for user in users %}
+            {% for training_id in app.user %}
                 <tr>
-                    <td>{{ user.username }}</td>
-                    <td>{{ user.lastname }}</td>
-                    <td>{{ user.email }}</td>
+                    <td>cours {{ training.title }}</td>
+                    <td>{{ app.user.lastname }}</td>
+                    <td>{{ app.user.email }}</td>
                 </tr>
             {% endfor %}
         </table>
+
     </body>
 </html>

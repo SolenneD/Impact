@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: monic
+ * User: kevin
  * Date: 18/03/2018
  * Time: 16:40
  */
@@ -9,12 +9,12 @@
 namespace App\DataFixtures;
 
 
-use App\Entity\Coach;
+use App\Entity\Event;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\DBAL\Schema\Constraint;
 
-class CoachFixtures extends Fixture
+class EventFixtures extends Fixture
 {
 
     /**
@@ -26,14 +26,15 @@ class CoachFixtures extends Fixture
     {
         // TODO: Implement load() method.
         $i = 1;
-        while($i < 11){
-            $coach = new Coach();
-            $coach->setName("Noms de famille du coach n°".$i);
-            $coach->setLastname("Prénom du coach n°".$i);
-            $coach->setEmail("email".$i."@mail.fr");
-            $coach->setBio("Bio du coach n°".$i);
+        while($i < 10){
+            $event = new Event();
+            $event->setTitle("Event n°".$i);
+            $event->setDay(new \DateTime('06/04/2018'));
+            $event->setHour(new \DateTime('06/04/2018'));
+            $event->setDescription('Description de l\'Event n°'.$i);
+            $event->setisCanceled('0');
 
-            $manager->persist($coach);
+            $manager->persist($event);
             $i++;
         }
         $manager->flush();
