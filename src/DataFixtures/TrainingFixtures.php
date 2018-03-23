@@ -27,7 +27,7 @@ class TrainingFixtures extends Fixture
     {
         // TODO: Implement load() method.
         $i = 1;
-        while($i < 4){
+        while($i < 11){
             $training = new Training();
             $training->setTitle("Cours n°".$i);
             $training->setDay(new \DateTime('06/04/2018'));
