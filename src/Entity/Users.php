@@ -61,6 +61,27 @@ class Users implements UserInterface
      */
     protected $training;
 
+    /**
+     * @ORM\Column(name="is_active", type="boolean")
+     */
+    private $isActive;
+
+    /**
+     * @var array
+     */
+    private $roles;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isAdmin = false;
+
+    public function __construct()
+    {
+        $this->isActive = true;
+        // may not be needed, see section on salt below
+        // $this->salt = md5(uniqid('', true));
+    }
 
     /**
      * @return mixed
@@ -190,10 +211,6 @@ class Users implements UserInterface
         $this->training = $training;
     }
 
-    public function getSalt(){
-        return null;
-    }
-
     /**
      * Returns the roles granted to the user.
      *
@@ -212,8 +229,55 @@ class Users implements UserInterface
      */
     public function getRoles()
     {
-        // TODO: Implement getRoles() method.
-        return array('ROLE_USER');
+        if ($this->getisAdmin()) {
+            return ['ROLE_ADMIN'];
+        }
+
+        return ['ROLE_USER'];
+    }
+    /**
+     * @return mixed
+     */
+    public function getisActive()
+    {
+        return $this->isActive;
+    }
+
+    /**
+     * @param mixed $isActive
+     */
+    public function setIsActive($isActive)
+    {
+        $this->isActive = $isActive;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getisAdmin()
+    {
+        return $this->isAdmin;
+    }
+
+    /**
+     * @param mixed $isAdmin
+     */
+    public function setIsAdmin($isAdmin)
+    {
+        $this->isAdmin = $isAdmin;
+    }
+
+
+    /**
+     * Returns the salt that was originally used to encode the password.
+     *
+     * This can return null if the password was not encoded using a salt.
+     *
+     * @return string|null The salt
+     */
+    public function getSalt()
+    {
+        return null;
     }
 
     /**
@@ -224,6 +288,34 @@ class Users implements UserInterface
      */
     public function eraseCredentials()
     {
-        // TODO: Implement eraseCredentials() method.
+        $this->setPlainPassword(null);
     }
+
+    /** @see \Serializable::serialize() */
+    public function serialize()
+    {
+        return serialize(array(
+            $this->id,
+            $this->username,
+            $this->password,
+            $this->roles,
+            // see section on salt below
+            // $this->salt,
+        ));
+    }
+
+    /** @see \Serializable::unserialize() */
+    public function unserialize($serialized)
+    {
+        list (
+            $this->id,
+            $this->username,
+            $this->password,
+            $this->roles,
+            // see section on salt below
+            // $this->salt
+            ) = unserialize($serialized);
+    }
+
+
 }
