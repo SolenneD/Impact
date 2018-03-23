@@ -19,25 +19,24 @@
 
     <table>
         <tr>
-            <th></th>
             <th>Cours</th>
             <th>Coach</th>
             <th>Date</th>
             <th>Heure</th>
             <th>Durée</th>
             <th>Intensité</th>
+            <th></th>
             <th>Réserver</th>
         </tr>
         {% for training in trainings %}
             <tr>
-                <td>{{ training.isCanceled ? 'Annulé' : ''}}</td>
                 <td>{{ training.title }}</td>
                 <td>{{ training.coach != null ? training.coach.name : '' }}</td>
-                <td>{{ training.day|date('d') }}</td>
+                <td>{{ training.day|date('Dd') }}</td>
                 <td>{{ training.hour|date('H:i') }}</td>
                 <td>{{ training.periode }}min</td>
                 <td>{{ training.intensite }}</td>
-                <td>Je réserve</td>
+                <td>{{ training.isCanceled ? 'Annulé' : ''}}</td>
             </tr>
         {% endfor %}
     </table>

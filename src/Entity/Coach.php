@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CoachRepository")
@@ -15,6 +16,15 @@ class Coach
      * @ORM\Column(type="integer")
      */
     private $id;
+
+    /**
+     * @var string
+     * @Assert\NotBlank(message="Rentre une image roya")
+     * @Assert\Image()
+     * @ORM\column(name="image", type="string", length=255)
+     */
+    private $image;
+
     /**
      * @ORM\Column(type="string")
      */
@@ -39,6 +49,8 @@ class Coach
      * @ORM\OneToMany(targetEntity="Training", mappedBy="coach")
      */
     protected $training;
+
+
 
     /**
      * @return mixed
@@ -136,8 +148,21 @@ class Coach
         $this->training = $training;
     }
 
-
-    public function __toString() {
-        return $this->name;
+    /**
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->image;
     }
+
+    /**
+     * @param string $image
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }
+
+
 }

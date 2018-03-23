@@ -22,6 +22,7 @@
             <th>Prénom</th>
             <th>Email</th>
             <th>Bio</th>
+            <button>click</button>
         </tr>
         {% for coach in coachs %}
             <tr>
@@ -29,6 +30,7 @@
                 <td>{{ coach.lastname }}</td>
                 <td>{{ coach.email }}</td>
                 <td>{{ coach.bio }}</td>
+                <td>{{ coach.image }}</td>
             </tr>
         {% endfor %}
     </table>

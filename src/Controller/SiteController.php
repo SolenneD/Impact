@@ -12,6 +12,7 @@ use App\Form\TrainingType;
 use App\Repository\CoachRepository;
 use App\Repository\EventRepository;
 use App\Repository\TrainingRepository;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -36,7 +37,7 @@ class SiteController extends Controller
 
         return $this->render('site/cours.html.twig', [
             'trainings'=>$trainings,
-            'controller_name' => 'SiteController'
+            'controller_name' => 'SiteController',
         ]);
     }
     /**
@@ -64,7 +65,7 @@ class SiteController extends Controller
     }
 
     /**
-     * @Route("/subscribe", name="subscibe")
+     * @Route("/subscribe", name="subscribe")
      */
     public function subscribe()
     {
@@ -142,6 +143,18 @@ class SiteController extends Controller
 
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){ //si form envoyer et valide
+            /**
+             * @var UploadedFile $file
+             */
+            $file=$coach->getImage();
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+
+            $file->move(
+                $this->getParameter('image_directory'),
+                $fileName
+            );
+
+            $coach->setImage($fileName);
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($coach);
@@ -150,10 +163,10 @@ class SiteController extends Controller
             return $this->redirectToRoute('team');
         }
 
-        return $this->render('site/admingestiondescoachs.html.twig', [
+        return $this->render('site/admingestiondescoachs.html.twig', array(
             'form' => $form->createView(),
             'controller_name' => 'SiteController',
-        ]);
+        ));
     }
 
     /**

@@ -57,7 +57,7 @@ class Users implements UserInterface
 
     /**
      * @ORM\ManyToMany(targetEntity="Training")
-     * @ORM\JoinTable(name="users_traning",)
+     * @ORM\JoinTable(name="users_training",)
      */
     protected $training;
 
