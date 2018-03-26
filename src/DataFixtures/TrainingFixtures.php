@@ -34,7 +34,7 @@ class TrainingFixtures extends Fixture
             $training->setHour(new \DateTime('06/04/2018'));
             $training->setPeriode($i*2);
             $training->setIntensite($i%2);
-            $training->setisCanceled('0');
+            $training->setIsCanceled(0);
 
             $manager->persist($training);
             $i++;

@@ -15,6 +15,7 @@ use App\Repository\TrainingRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 class SiteController extends Controller
 {
@@ -78,6 +79,9 @@ class SiteController extends Controller
      */
     public function admin()
     {
+        if (false === $this->get('security.context')->isGranted('ROLE_ADMIN')) {
+            throw new AccessDeniedException();
+        }
         return $this->render('site/admin.html.twig', [
             'controller_name' => 'SiteController',
         ]);
