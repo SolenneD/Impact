@@ -177,6 +177,7 @@ class Training
     {
         $this->coach = $coach;
     }
+
     public function __toString() {
         return $this->title;
     }

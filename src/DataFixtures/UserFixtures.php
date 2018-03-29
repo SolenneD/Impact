@@ -1,19 +1,13 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: monic
- * Date: 18/03/2018
- * Time: 15:36
- */
 
 namespace App\DataFixtures;
-
 
 use App\Entity\Users;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Security\Core\Encoder\EncoderFactoryInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+
 
 class UserFixtures extends Fixture
 {
@@ -24,14 +18,20 @@ class UserFixtures extends Fixture
         $this->encoder = $encoder;
     }
 
-    /**
-     * Load data fixtures with the passed EntityManager
-     *
-     * @param ObjectManager $manager
-     */
     public function load(ObjectManager $manager)
     {
-        // TODO: Implement load() method.
+        $i = 1;
+
+        while ($i <= 3) {
+            $user = new Users();
+            $user->setUsername('Username'.$i);
+            $user->setLastname('Lastname'.$i);
+            $user->setPassword($this->encoder->encodePassword($user, 'mdp' . $i));
+            $user->setEmail('user' . $i . '@gmail.com');
+            $manager->persist($user);
+            $i++;
+        }
+
         $admin = new Users();
         $admin->setUsername('admin');
         $admin->setLastname('admin');
