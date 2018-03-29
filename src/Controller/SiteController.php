@@ -57,7 +57,7 @@ class SiteController extends Controller
         ]);
     }
 
-    /**s
+    /**
      * @Route("/team", name="team")
      */
     public function team(CoachRepository $coachRepository)
