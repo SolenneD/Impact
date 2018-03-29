@@ -22,7 +22,7 @@
             <th>Prénom</th>
             <th>Email</th>
             <th>Bio</th>
-            <button>click</button>
+            <th>Sa grosse tête</th>
         </tr>
         {% for coach in coachs %}
             <tr>
@@ -30,7 +30,7 @@
                 <td>{{ coach.lastname }}</td>
                 <td>{{ coach.email }}</td>
                 <td>{{ coach.bio }}</td>
-                <td>{{ coach.image }}</td>
+                <td><img src="{{ vich_uploader_asset(coach , 'imageFile') }}" /></td>
             </tr>
         {% endfor %}
     </table>

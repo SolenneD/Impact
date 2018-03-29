@@ -47,7 +47,7 @@ class SiteController extends Controller
     {
         $coachs = $coachRepository->findAll();
         return $this->render('site/team.html.twig', [
-            'coachs'=>$coachs,
+            'coachs' =>$coachs,
             'controller_name' => 'SiteController',
         ]);
     }

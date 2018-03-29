@@ -1,0 +1,23 @@
+parameters:
+    app.path.coach_images: /uploads/images/coach
+    app.path.users_images: /uploads/images/users
+    app.path.event_images: /uploads/images/event
+
+vich_uploader:
+    db_driver: orm
+
+    mappings:
+        coach_images:
+            uri_prefix: '%app.path.coach_images%'
+            upload_destination: '%kernel.project_dir%/public/uploads/images/coach'
+            inject_on_load: true
+
+        users_images:
+            uri_prefix: '%app.path.users_images%'
+            upload_destination: '%kernel.project_dir%/public/uploads/images/users'
+            inject_on_load: true
+
+        event_images:
+            uri_prefix: '%app.path.event_images%'
+            upload_destination: '%kernel.project_dir%/public/uploads/images/event'
+            inject_on_load: true

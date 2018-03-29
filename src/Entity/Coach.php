@@ -4,9 +4,13 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\File;
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CoachRepository")
+ * @Vich\Uploadable
  */
 class Coach
 {
@@ -24,6 +28,18 @@ class Coach
      * @ORM\column(name="image", type="string", length=255)
      */
     private $image;
+
+    /**
+     * @Vich\UploadableField(mapping="coach_images", fileNameProperty="image")
+     * @var File
+     */
+    private $imageFile;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     * @var \DateTime
+     */
+    private $updatedAt;
 
     /**
      * @ORM\Column(type="string")
@@ -148,6 +164,28 @@ class Coach
         $this->training = $training;
     }
 
+
+
+    /**
+     * @return \File|null
+     */
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * @param File $imageFile
+     */
+    public function setImageFile(File $image = null)
+    {
+        $this->imageFile = $image;
+
+        if ($image){
+            $this->updatedAt = new \DateTime('now');
+        }
+    }
+
     /**
      * @return string
      */
@@ -164,5 +202,19 @@ class Coach
         $this->image = $image;
     }
 
+    /**
+     * @return \DateTime|null
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
 
+    /**
+     * @param \DateTime $updatedAt
+     */
+    public function setUpdatedAt(\DateTime $updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+    }
 }
