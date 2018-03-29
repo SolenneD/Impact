@@ -1,1 +1,115 @@
+<<<<<<< HEAD
+easy_admin:
+    entities:
+        Coach:
+            class: App\Entity\Coach
+            list:
+                fields:
+                    - { property: 'id', type: 'integer' }
+                    - { property: 'image', type: 'image', base_path: '%app.path.coach_images%' }
+                    - { property: 'name', type: 'string' }
+                    - { property: 'lastname', type: 'string' }
+                    - { property: 'email', type: 'string' }
+                    - { property: 'bio', type: 'text' }
+                    - { property: 'training' }
+            show:
+                fields:
+                    - { property: 'id', type: 'integer' }
+                    - { property: 'image', type: 'image', base_path: '%app.path.coach_images%' }
+                    - { property: 'name', type: 'string' }
+                    - { property: 'lastname', type: 'string' }
+                    - { property: 'email', type: 'string' }
+                    - { property: 'bio', type: 'text' }
+                    - { property: 'training' }
+            form:
+                fields:
+                    - { property: 'imageFile', type: 'file' }
+                    - { property: 'name' }
+                    - { property: 'lastname' }
+                    - { property: 'email' }
+                    - { property: 'bio' }
+                    - { property: 'training' }
+        Training:
+            class: App\Entity\Training
+            list:
+                fields:
+                    - { property: 'id', type: 'integer' }
+                    - { property: 'title', type: 'string' }
+                    - { property: 'day', type: 'date' }
+                    - { property: 'hour', type: 'time' }
+                    - { property: 'periode', type: 'string' }
+                    - { property: 'intensite', type: 'integer' }
+                    - { property: 'coach' }
+            show:
+                fields:
+                    - { property: 'id', type: 'integer' }
+                    - { property: 'title', type: 'string' }
+                    - { property: 'day', type: 'date' }
+                    - { property: 'hour', type: 'time' }
+                    - { property: 'periode', type: 'string' }
+                    - { property: 'intensite', type: 'integer' }
+                    - { property: 'coach', type: 'string' }
+            form:
+                fields:
+                    - { property: 'title' }
+                    - { property: 'day' }
+                    - { property: 'hour' }
+                    - { property: 'periode' }
+                    - { property: 'intensite' }
+                    - { property: 'coach' }
+        Users:
+            class: App\Entity\Users
+            list:
+                fields:
+                    - { property: 'id', type: 'integer' }
+                    - { property: 'image', type: 'image', base_path: '%app.path.users_images%' }
+                    - { property: 'username', type: 'string' }
+                    - { property: 'lastname', type: 'string' }
+                    - { property: 'email', type: 'string' }
+                    - { property: 'password', type: 'string' }
+                    - { property: 'goals' }
+                    - { property: 'training' }
+            show:
+                fields:
+                    - { property: 'id', type: 'integer' }
+                    - { property: 'image', type: 'image', base_path: '%app.path.users_images%' }
+                    - { property: 'username', type: 'string' }
+                    - { property: 'lastname', type: 'string' }
+                    - { property: 'email', type: 'string' }
+                    - { property: 'password', type: 'string' }
+                    - { property: 'goals' }
+                    - { property: 'training' }
+            form:
+                fields:
+                    - { property: 'imageFile', type: 'file' }
+                    - { property: 'username' }
+                    - { property: 'lastname' }
+                    - { property: 'email' }
+                    - { property: 'password' }
+                    - { property: 'goals' }
+                    - { property: 'training' }
+        Admin:
+            class: App\Entity\Admin
+            list:
+                fields:
+                    - { property: 'id', type: 'integer' }
+                    - { property: 'name', type: 'string' }
+                    - { property: 'lastname', type: 'string' }
+                    - { property: 'email', type: 'string' }
+                    - { property: 'password', type: 'string' }
+            show:
+                fields:
+                    - { property: 'id', type: 'integer' }
+                    - { property: 'name', type: 'string' }
+                    - { property: 'lastname', type: 'string' }
+                    - { property: 'email', type: 'string' }
+                    - { property: 'password', type: 'string' }
+            form:
+                fields:
+                    - { property: 'name' }
+                    - { property: 'lastname' }
+                    - { property: 'email' }
+                    - { property: 'password' }
+=======
 
+>>>>>>> a4baca2ae6c7b690158d641d39bb8cd5b0ee72ed

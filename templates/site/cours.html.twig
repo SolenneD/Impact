@@ -19,7 +19,6 @@
 
     <table>
         <tr>
-
             <th>Cours</th>
             <th>Coach</th>
             <th>Date</th>
@@ -33,7 +32,7 @@
             <tr>
                 <td>{{ training.title }}</td>
                 <td>{{ training.coach != null ? training.coach.name : '' }}</td>
-                <td>{{ training.day|date('d') }}</td>
+                <td>{{ training.day|date('Dd') }}</td>
                 <td>{{ training.hour|date('H:i') }}</td>
                 <td>{{ training.periode }}min</td>
                 <td>{{ training.intensite }}</td>

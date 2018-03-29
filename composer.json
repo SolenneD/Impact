@@ -11,14 +11,15 @@
         "symfony/form": "^3.4",
         "symfony/framework-bundle": "^3.4",
         "symfony/lts": "^3",
-        "symfony/maker-bundle": "^1.2",
+        "symfony/maker-bundle": "^1.1",
         "symfony/orm-pack": "^1.0",
         "symfony/security-bundle": "^3.4",
         "symfony/swiftmailer-bundle": "^3.2",
         "symfony/twig-bundle": "^3.4",
         "symfony/validator": "^3.4",
         "symfony/web-server-bundle": "^3.4",
-        "symfony/yaml": "^3.4"
+        "symfony/yaml": "^3.4",
+        "vich/uploader-bundle": "^1.8"
     },
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^3.0",
