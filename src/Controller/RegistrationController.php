@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Users;
+use App\Form\ProfilEditType;
 use App\Form\UserType;
 use App\Repository\UsersRepository;
 use Symfony\Component\HttpFoundation\Request;
@@ -42,8 +43,39 @@ class RegistrationController extends Controller
      */
     public function profil (UsersRepository $usersRepository)
     {
-        $users = $usersRepository->findAll();
+        $user = $this->getUser();
 
-        return $this->render('registration/profil.html.twig', ['users'=>$users]);
+        return $this->render('registration/profil.html.twig', ['user'=>$user]);
     }
+
+    /**
+     * @Route("/profil/edit", name="profil_edit")
+     */
+    public function profilEditAction (Request $request, UserPasswordEncoderInterface $encoder)
+    {
+        $user = $this->getUser();
+        $form = $this->createForm(ProfilEditType::class, $user);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+            /** @var Users $editUser */
+            $editUser = $form->getData();
+
+            $plainpw = $editUser->getPlainPassword();
+
+            $encode = $encoder->encodePassword($editUser, $plainpw);
+            $editUser->setPassword($encode);
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($editUser);
+            $em->flush();
+
+            return $this->redirectToRoute('profil');
+
+
+        }
+
+        return $this->render('registration/profiledit.html.twig', ['form'=>$form->createView()]);
+    }
+
 }
