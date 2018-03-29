@@ -25,7 +25,7 @@
             <th>Heure</th>
             <th>Durée</th>
             <th>Intensité</th>
-            <th></th>
+            <th>Disponibilité</th>
             <th>Réserver</th>
         </tr>
         {% for training in trainings %}
@@ -36,7 +36,9 @@
                 <td>{{ training.hour|date('H:i') }}</td>
                 <td>{{ training.periode }}min</td>
                 <td>{{ training.intensite }}</td>
-                <td>{{ training.isCanceled ? 'Annulé' : ''}}</td>
+                <td  {{ training.isCanceled ? 'style="background:red"' : 'style="background:green"'}} >{{ training.isCanceled ? 'Annulé' : 'Disponible'}}</td>
+                <td><button>Je réserve</button></td>
+                <td>{{ training. }}</td>
             </tr>
         {% endfor %}
     </table>

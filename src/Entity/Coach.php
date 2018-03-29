@@ -28,7 +28,6 @@ class Coach
      * @ORM\column(name="image", type="string", length=255)
      */
     private $image;
-
     /**
      * @Vich\UploadableField(mapping="coach_images", fileNameProperty="image")
      * @var File
@@ -52,7 +51,7 @@ class Coach
     protected $lastName;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="text")
      */
     protected $email;
 

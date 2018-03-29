@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 easy_admin:
     entities:
         Coach:
@@ -109,3 +110,6 @@ easy_admin:
                     - { property: 'lastname' }
                     - { property: 'email' }
                     - { property: 'password' }
+=======
+
+>>>>>>> a4baca2ae6c7b690158d641d39bb8cd5b0ee72ed

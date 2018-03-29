@@ -1,25 +1,10 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        <h1>Profil</h1>
-        <table>
-            <tr>
-                <td>Username</td>
-                <td>Lastname</td>
-                <td>Email</td>
-            </tr>
-            {% for user in users %}
-                <tr>
-                    <td>{{ user.username }}</td>
-                    <td>{{ user.lastname }}</td>
-                    <td>{{ user.email }}</td>
-                </tr>
-            {% endfor %}
-        </table>
-    </body>
-</html>
+{% extends 'base.html.twig' %}
+
+{% block title %}Welcome!{% endblock %}
+{% block body %}
+    <h1>Profil</h1>
+
+    <p>{{ app.user.username }}</p>
+    <p>{{ app.user.lastname }}</p>
+
+{% endblock %}

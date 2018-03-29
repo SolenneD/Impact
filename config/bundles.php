@@ -15,5 +15,9 @@ return [
     EasyCorp\Bundle\EasyAdminBundle\EasyAdminBundle::class => ['all' => true],
     Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle::class => ['dev' => true, 'test' => true],
     Symfony\Bundle\WebServerBundle\WebServerBundle::class => ['dev' => true],
+<<<<<<< HEAD
     Vich\UploaderBundle\VichUploaderBundle::class => ['all' => true],
+=======
+    Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle::class => ['all' => true],
+>>>>>>> a4baca2ae6c7b690158d641d39bb8cd5b0ee72ed
 ];

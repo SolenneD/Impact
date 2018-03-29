@@ -16,6 +16,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 class SiteController extends Controller
 {
@@ -79,6 +80,9 @@ class SiteController extends Controller
      */
     public function admin()
     {
+        if (false === $this->get('security.context')->isGranted('ROLE_ADMIN')) {
+            throw new AccessDeniedException();
+        }
         return $this->render('site/admin.html.twig', [
             'controller_name' => 'SiteController',
         ]);
@@ -115,7 +119,7 @@ class SiteController extends Controller
     /**
      * @Route("/admin/gestiondescours/{id}", name="updatecours")
      */
-    public function updateCours($id)
+    public function updateCours($id, \Swift_Mailer $mailer)
     {
         $entityManager = $this->getDoctrine()->getManager();
         $training = $entityManager->getRepository(Training::class)->find($id);
@@ -129,6 +133,17 @@ class SiteController extends Controller
 //        if($training->getIsCanceled() == 0){} //vérifier si le isCanceled est à 0
         $training->setIsCanceled(1);
         $entityManager->flush();
+
+        // mail d'annulation
+        $message = (new \Swift_Message('Hello Email'))
+            ->setFrom('meride.monica@gmail.com')
+            ->setTo('monica.meride@outlook.fr')
+            ->setBody(
+               'test'
+            )
+        ;
+
+        $mailer->send($message);
 
         return $this->redirectToRoute('gestiondescours');
     }
