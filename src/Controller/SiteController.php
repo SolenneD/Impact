@@ -41,7 +41,23 @@ class SiteController extends Controller
             'controller_name' => 'SiteController',
         ]);
     }
+
     /**
+     * @Route("/reservation/{idTraining}", name="reservation")
+     */
+    public function reservation($idTraining, TrainingRepository $trainingRepository)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $training = $entityManager->getRepository(Training::class)->find($idTraining);
+        $user= $this->getUser();
+        return $this->render('site/reservation.html.twig', [
+            'training'=>$training,
+            'user'=>$user,
+            'controller_name' => 'SiteController',
+        ]);
+    }
+
+    /**s
      * @Route("/team", name="team")
      */
     public function team(CoachRepository $coachRepository)
