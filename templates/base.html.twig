@@ -16,6 +16,7 @@
         <a href="../register">S'inscrire</a>
         {% endif %}
         {% if is_granted('ROLE_USER') %}
+            <a href="../profil">Mon profil</a>
             <a href="../logout">Deco</a>
         {% endif %}
     </nav>
