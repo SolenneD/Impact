@@ -118,7 +118,7 @@ class SiteController extends Controller
     /**
      * @Route("/admin/gestiondescours/{id}", name="updatecours")
      */
-    public function updateCours($id)
+    public function updateCours($id, \Swift_Mailer $mailer)
     {
         $entityManager = $this->getDoctrine()->getManager();
         $training = $entityManager->getRepository(Training::class)->find($id);
@@ -132,6 +132,17 @@ class SiteController extends Controller
 //        if($training->getIsCanceled() == 0){} //vérifier si le isCanceled est à 0
         $training->setIsCanceled(1);
         $entityManager->flush();
+
+        // mail d'annulation
+        $message = (new \Swift_Message('Hello Email'))
+            ->setFrom('meride.monica@gmail.com')
+            ->setTo('monica.meride@outlook.fr')
+            ->setBody(
+               'test'
+            )
+        ;
+
+        $mailer->send($message);
 
         return $this->redirectToRoute('gestiondescours');
     }
