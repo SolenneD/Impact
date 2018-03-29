@@ -18,21 +18,22 @@
 
     <table>
         <tr>
-            <th></th>
+
             <th>Nom</th>
             <th>Date</th>
             <th>Heure</th>
             <th>Description</th>
+            <th>Disponibilité</th>
             <th>Réserver</th>
         </tr>
         {% for event in events %}
             <tr>
-                <td>{{ event.isCanceled ? 'Annulé' : ''}}</td>
                 <td>{{ event.title }}</td>
                 <td>{{ event.day|date('d') }}</td>
                 <td>{{ event.hour|date('H:i') }}</td>
                 <td>{{ event.description }}</td>
-                <td>Je réserve</td>
+                    <td  {{ event.isCanceled ? 'style="background:red"' : 'style="background:green"'}} >{{ event.isCanceled ? 'Annulé' : 'Disponible'}}</td>
+                <td><button>Je réserve</button></td>
             </tr>
         {% endfor %}
     </table>

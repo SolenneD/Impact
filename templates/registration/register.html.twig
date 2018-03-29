@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello !{% endblock %}
+
+{% block body %}
         {{ form_start(form) }}
         {{ form_row(form.username) }}
         {{ form_row(form.lastname) }}
@@ -16,5 +13,5 @@
         <button type="submit">Inscrire!</button>
         {{ form_end(form) }}
 
-    </body>
-</html>
+{% endblock %}
+
