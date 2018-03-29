@@ -11,8 +11,10 @@
         <a href="../team">Équipe</a>
         <a href="../training">Cours</a>
         <a href="../event">Évenement</a>
+        {% if is_granted('ROLE_USER') == false %}
         <a href="../profil">Connexion</a>
         <a href="../register">S'inscrire</a>
+        {% endif %}
         {% if is_granted('ROLE_USER') %}
             <a href="../logout">Deco</a>
         {% endif %}
