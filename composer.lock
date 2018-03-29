@@ -3277,16 +3277,17 @@
         },
         {
             "name": "symfony/maker-bundle",
-            "version": "v1.1.1",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/maker-bundle.git",
-                "reference": "ba427289009de6f0fd51fb51186eeaa70ab3a33d"
+                "reference": "9db72995231c12c701249f07743c0591ccf70e73"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/maker-bundle/zipball/ba427289009de6f0fd51fb51186eeaa70ab3a33d",
-                "reference": "ba427289009de6f0fd51fb51186eeaa70ab3a33d",
+                "url": "https://api.github.com/repos/symfony/maker-bundle/zipball/9db72995231c12c701249f07743c0591ccf70e73",
+                "reference": "9db72995231c12c701249f07743c0591ccf70e73",
+
                 "shasum": ""
             },
             "require": {
@@ -3333,7 +3334,8 @@
                 "scaffold",
                 "scaffolding"
             ],
-            "time": "2018-02-21T19:43:12+00:00"
+            "time": "2018-03-14T01:02:47+00:00"
+
         },
         {
             "name": "symfony/monolog-bridge",
@@ -4389,6 +4391,7 @@
             "time": "2018-02-17T14:55:25+00:00"
         },
         {
+
             "name": "symfony/swiftmailer-bundle",
             "version": "v3.2.1",
             "source": {
@@ -4426,6 +4429,7 @@
             },
             "autoload": {
                 "psr-4": {
+
                     "Symfony\\Bundle\\SwiftmailerBundle\\": ""
                 },
                 "exclude-from-classmap": [
@@ -4438,6 +4442,7 @@
             ],
             "authors": [
                 {
+
                     "name": "Symfony Community",
                     "homepage": "http://symfony.com/contributors"
                 },
@@ -5138,6 +5143,7 @@
                 "templating"
             ],
             "time": "2018-03-20T04:31:17+00:00"
+
         },
         {
             "name": "vich/uploader-bundle",

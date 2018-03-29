@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Welcome!{% endblock %}
+{% block body %}
+    <h1>Modifier mon profil</h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+
+        <button type="submit">Modifier</button>
+        <a href="{{ path('profil') }}">Retour à mes informations</a>
+
+    {{ form_end(form) }}
+
+
+
+{% endblock %}
