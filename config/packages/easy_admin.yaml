@@ -6,3 +6,4 @@ easy_admin:
         - App\Entity\Users
         - App\Entity\Coach
         - App\Entity\Admin
+        - App\Entity\Event

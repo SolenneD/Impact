@@ -1,27 +1,10 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        <h1>Profil</h1>
+{% extends 'base.html.twig' %}
+
+{% block title %}Welcome!{% endblock %}
+{% block body %}
+    <h1>Profil</h1>
 
     <p>{{ app.user.username }}</p>
-        <p>{{ app.user.lastname }}</p>
-        <table>
-            <tr>
-                <td>cours</td>
-            </tr>
-            {% for training_id in app.user %}
-                <tr>
-                    <td>cours {{ training.title }}</td>
-                    <td>{{ app.user.lastname }}</td>
-                    <td>{{ app.user.email }}</td>
-                </tr>
-            {% endfor %}
-        </table>
+    <p>{{ app.user.lastname }}</p>
 
-    </body>
-</html>
+{% endblock %}
