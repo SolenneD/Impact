@@ -12,6 +12,7 @@ namespace App\Form;
 use App\Entity\Coach;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -34,6 +35,9 @@ class CoachType extends AbstractType
             ->add('bio', TextareaType::class,[
                 'label' => "Bio du coach"
             ])
+            ->add('image', FileType::class, array(
+                'label' => 'Inserer une image'))
+
         ;
     }
 

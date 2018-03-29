@@ -48,8 +48,7 @@ class TrainingType extends AbstractType
                         ->orderBy('u.id','ASC');
                 },
                 'choice_label' => 'name'
-            ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
