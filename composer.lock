@@ -4389,34 +4389,6 @@
             "time": "2018-02-17T14:55:25+00:00"
         },
         {
-<<<<<<< HEAD
-            "name": "symfony/templating",
-            "version": "v3.4.6",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/templating.git",
-                "reference": "6ac0bb6dea36053b97027dae0bf3888e432c1f74"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/templating/zipball/6ac0bb6dea36053b97027dae0bf3888e432c1f74",
-                "reference": "6ac0bb6dea36053b97027dae0bf3888e432c1f74",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^5.5.9|>=7.0.8"
-            },
-            "require-dev": {
-                "psr/log": "~1.0"
-            },
-            "suggest": {
-                "psr/log": "For using debug logging in loaders"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.4-dev"
-=======
             "name": "symfony/swiftmailer-bundle",
             "version": "v3.2.1",
             "source": {
@@ -4450,16 +4422,11 @@
             "extra": {
                 "branch-alias": {
                     "dev-master": "3.2-dev"
->>>>>>> a4baca2ae6c7b690158d641d39bb8cd5b0ee72ed
                 }
             },
             "autoload": {
                 "psr-4": {
-<<<<<<< HEAD
-                    "Symfony\\Component\\Templating\\": ""
-=======
                     "Symfony\\Bundle\\SwiftmailerBundle\\": ""
->>>>>>> a4baca2ae6c7b690158d641d39bb8cd5b0ee72ed
                 },
                 "exclude-from-classmap": [
                     "/Tests/"
@@ -4471,19 +4438,6 @@
             ],
             "authors": [
                 {
-<<<<<<< HEAD
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony Templating Component",
-            "homepage": "https://symfony.com",
-            "time": "2018-01-03T07:37:34+00:00"
-=======
                     "name": "Symfony Community",
                     "homepage": "http://symfony.com/contributors"
                 },
@@ -4495,7 +4449,6 @@
             "description": "Symfony SwiftmailerBundle",
             "homepage": "http://symfony.com",
             "time": "2018-03-08T16:39:26+00:00"
->>>>>>> a4baca2ae6c7b690158d641d39bb8cd5b0ee72ed
         },
         {
             "name": "symfony/translation",
