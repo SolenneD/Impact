@@ -23,7 +23,6 @@ class Coach
 
     /**
      * @var string
-     * @Assert\NotBlank(message="Rentre une image roya")
      * @Assert\Image()
      * @ORM\column(name="image", type="string", length=255)
      */
