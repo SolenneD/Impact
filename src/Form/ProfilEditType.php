@@ -27,19 +27,19 @@ class ProfilEditType extends AbstractType
             ->setAction('edit')
             ->setMethod('POST')
             ->add('username', TextType::class,[
-                'label' => "TON USERNAME"
+                'label' => "Prénom"
             ])
             ->add('lastname', TextType::class,[
-                'label' => "Prénom profil"
+                'label' => "Nom"
             ])
             ->add('email', EmailType::class,[
-                'label' => "Email profil"
+                'label' => "Email"
             ])
             ->add('plainPassword', RepeatedType::class,[
                 'type' => PasswordType::class,
                 'label' => "mdp profil",
-                'first_options' => array('label' => 'Password'),
-                'second_options' => array('label' => 'Répétez Password')
+                'first_options' => array('label' => 'Modifier le mot de passe'),
+                'second_options' => array('label' => 'Répéter le mot de passe')
 
             ])
         ;
