@@ -13,14 +13,9 @@
 
     <h1>Profil</h1>
 
-<<<<<<< HEAD
 
-    <p>{{ user.username }}</p>
-    <p>{{ user.lastname }}</p>
-=======
     <p>Prénom : {{ user.username }}</p>
     <p>Nom : {{ user.lastname }}</p>
->>>>>>> 22951d4acb05fe3c5c7592c14d091498f7191a53
 
     <h3>Mes cours</h3>
     <table>
@@ -53,12 +48,10 @@
                 <td>{{ event.hour|date('H:i') }}</td>
             </tr>
         {% endfor %}
-<<<<<<< HEAD
-    </p>
-=======
+
     </table>
 <br>
->>>>>>> 22951d4acb05fe3c5c7592c14d091498f7191a53
+
 
     <a href="{{ path('profil_edit') }}">Modifier mes informations</a>
 
