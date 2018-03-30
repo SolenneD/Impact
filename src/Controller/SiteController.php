@@ -12,6 +12,7 @@ use App\Form\TrainingType;
 use App\Repository\CoachRepository;
 use App\Repository\EventRepository;
 use App\Repository\TrainingRepository;
+use App\Repository\UsersRepository;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -43,21 +44,69 @@ class SiteController extends Controller
     }
 
     /**
-     * @Route("/reservation/{idTraining}", name="reservation")
+     * @Route("/reservation_cours/{idTraining}", name="reservationCours")
      */
-    public function reservation($idTraining, TrainingRepository $trainingRepository)
+    public function reservationCours($idTraining, UsersRepository $usersRepository)
     {
         $entityManager = $this->getDoctrine()->getManager();
         $training = $entityManager->getRepository(Training::class)->find($idTraining);
         $user= $this->getUser();
-        return $this->render('site/reservation.html.twig', [
-            'training'=>$training,
+        $user->addTraining($training); // ajout du user au cours (ajout dans la table users_training)
+        $entityManager->persist($user);
+        $entityManager->flush();
+
+        $users= $usersRepository->findByTraining($idTraining);//avoir toutes les personnes inscrite
+
+        /*return $this->render('site/reservation.html.twig', [
+            'cours'=>$training,
             'user'=>$user,
+            'users'=>$users,
+            'controller_name' => 'SiteController',
+        ]);*/
+
+        $this->addFlash('success', 'Réservé');
+        return $this->redirectToRoute('training');
+    }
+
+    /**
+     * Adds a flash message to the current session for type.
+     *
+     * @param string $type    The type
+     * @param string $message The message
+     *
+     * @throws \LogicException
+     */
+    protected function addFlash($type, $message)
+    {
+        if (!$this->container->has('session')) {
+            throw new \LogicException('You can not use the addFlash method if sessions are disabled.');
+        }
+        $this->container->get('session')->getFlashBag()->add($type, $message);
+    }
+
+    /**
+     * @Route("/reservation_event/{idEvent}", name="reservationEvent")
+     */
+    public function reservationEvent($idEvent, UsersRepository $usersRepository)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $event = $entityManager->getRepository(Event::class)->find($idEvent);
+        $user= $this->getUser();
+        $user->addEvent($event); //ajout du user à l'event (ajout dans la table users_event)
+        $entityManager->persist($user);
+        $entityManager->flush();
+
+        $users= $usersRepository->findByEvent($idEvent);//avoir toutes les personnes inscrite
+
+        return $this->render('site/reservation.html.twig', [
+            'cours'=>$event,
+            'user'=>$user,
+            'users'=>$users,
             'controller_name' => 'SiteController',
         ]);
     }
 
-    /**s
+    /**
      * @Route("/team", name="team")
      */
     public function team(CoachRepository $coachRepository)
@@ -107,9 +156,10 @@ class SiteController extends Controller
     /**
      * @Route("/admin/gestiondescours", name="gestiondescours")
      */
-    public function gestioncours(Request $request, TrainingRepository $trainingRepository)
+    public function gestioncours(Request $request, TrainingRepository $trainingRepository, UsersRepository $usersRepository)
     {
         $trainings = $trainingRepository->findAll();
+
 
         $training = new Training();
         $form = $this->createForm(TrainingType::class, $training);
@@ -159,7 +209,7 @@ class SiteController extends Controller
             )
         ;
 
-        $mailer->send($message);
+        //$mailer->send($message);
 
         return $this->redirectToRoute('gestiondescours');
     }

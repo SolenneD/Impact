@@ -136,4 +136,8 @@ class Event
     {
         $this->isCanceled = $isCanceled;
     }
+
+    public function __toString() {
+        return $this->title;
+    }
 }

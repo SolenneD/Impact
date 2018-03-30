@@ -18,6 +18,9 @@
         <p>C'est la page des cours sa mère</p>
 
         <p>user : {{ user.username }}</p>
-        <p>idTraining : {{ training }}</p>
+        <p>Cours/Event : {{ cours }}</p>
+        {% for user in users %}
+        <p>users : {{ user.username }}</p>
+        {% endfor %}
     </div>
 {% endblock %}
