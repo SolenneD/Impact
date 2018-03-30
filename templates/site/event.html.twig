@@ -15,9 +15,20 @@
 <div class="example-wrapper">
     <h1>Événements </h1>
 
+    {% for msg in app.session.flashBag.get('success') %}
+        <div class="alert alert-success">
+            {{ msg }}
+        </div>
+    {% endfor %}
+
+    {% for msg in app.session.flashBag.get('error') %}
+        <div class="alert alert-error">
+            {{ msg }}
+        </div>
+    {% endfor %}
+
     <table>
         <tr>
-
             <th>Nom</th>
             <th>Date</th>
             <th>Heure</th>
