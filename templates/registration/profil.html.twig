@@ -13,6 +13,7 @@
 
     <h1>Profil</h1>
 
+
     <p>Prénom : {{ user.username }}</p>
     <p>Nom : {{ user.lastname }}</p>
 
@@ -47,8 +48,10 @@
                 <td>{{ event.hour|date('H:i') }}</td>
             </tr>
         {% endfor %}
+
     </table>
 <br>
+
 
     <a href="{{ path('profil_edit') }}">Modifier mes informations</a>
 
