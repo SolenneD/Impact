@@ -208,14 +208,6 @@ class Users implements UserInterface
         return $this->training;
     }
 
-//    /**
-//     * @param mixed $training
-//     */
-//    public function setTraining($training)
-//    {
-//        $this->training = $training;
-//    }
-
     public function addTraining(Training $training)
     {
         $this->training[] = $training;
