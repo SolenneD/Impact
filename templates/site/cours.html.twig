@@ -14,8 +14,10 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-    <p>C'est la page des cours sa mère</p>
+
+
+    <h1>Cours</h1>
+
     {% for msg in app.session.flashBag.get('success') %}
         <div class="alert alert-success">
             {{ msg }}
