@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "baac8da9393fb9379687493ec2ab5a53",
+    "content-hash": "0449d25098d9ca9db2af7befcface3ff",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -3287,7 +3287,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/maker-bundle/zipball/9db72995231c12c701249f07743c0591ccf70e73",
                 "reference": "9db72995231c12c701249f07743c0591ccf70e73",
-
                 "shasum": ""
             },
             "require": {
@@ -3335,7 +3334,6 @@
                 "scaffolding"
             ],
             "time": "2018-03-14T01:02:47+00:00"
-
         },
         {
             "name": "symfony/monolog-bridge",
@@ -4391,7 +4389,6 @@
             "time": "2018-02-17T14:55:25+00:00"
         },
         {
-
             "name": "symfony/swiftmailer-bundle",
             "version": "v3.2.1",
             "source": {
@@ -4429,7 +4426,6 @@
             },
             "autoload": {
                 "psr-4": {
-
                     "Symfony\\Bundle\\SwiftmailerBundle\\": ""
                 },
                 "exclude-from-classmap": [
@@ -4442,7 +4438,6 @@
             ],
             "authors": [
                 {
-
                     "name": "Symfony Community",
                     "homepage": "http://symfony.com/contributors"
                 },
@@ -4454,6 +4449,61 @@
             "description": "Symfony SwiftmailerBundle",
             "homepage": "http://symfony.com",
             "time": "2018-03-08T16:39:26+00:00"
+        },
+        {
+            "name": "symfony/templating",
+            "version": "v3.4.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/templating.git",
+                "reference": "6ac0bb6dea36053b97027dae0bf3888e432c1f74"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/templating/zipball/6ac0bb6dea36053b97027dae0bf3888e432c1f74",
+                "reference": "6ac0bb6dea36053b97027dae0bf3888e432c1f74",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.5.9|>=7.0.8"
+            },
+            "require-dev": {
+                "psr/log": "~1.0"
+            },
+            "suggest": {
+                "psr/log": "For using debug logging in loaders"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Templating\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Templating Component",
+            "homepage": "https://symfony.com",
+            "time": "2018-01-03T07:37:34+00:00"
         },
         {
             "name": "symfony/translation",
@@ -5143,7 +5193,6 @@
                 "templating"
             ],
             "time": "2018-03-20T04:31:17+00:00"
-
         },
         {
             "name": "vich/uploader-bundle",

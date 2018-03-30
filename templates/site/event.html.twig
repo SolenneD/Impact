@@ -32,8 +32,12 @@
                 <td>{{ event.day|date('d') }}</td>
                 <td>{{ event.hour|date('H:i') }}</td>
                 <td>{{ event.description }}</td>
-                    <td  {{ event.isCanceled ? 'style="background:red"' : 'style="background:green"'}} >{{ event.isCanceled ? 'Annulé' : 'Disponible'}}</td>
-                <td><button>Je réserve</button></td>
+                <td  {{ event.isCanceled ? 'style="background:red"' : 'style="background:green"'}} >{{ event.isCanceled ? 'Annulé' : 'Disponible'}}</td>
+                <td>
+                    {% if event.isCanceled == false %}
+                        <a href="{{ path('reservationEvent', {'idEvent': event.id}) }}">Je réserve</a>
+                    {% endif %}
+                </td>
             </tr>
         {% endfor %}
     </table>
