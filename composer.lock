@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "baac8da9393fb9379687493ec2ab5a53",
+    "content-hash": "f5394351dca36cab14217ed9417c66b8",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -2328,16 +2328,16 @@
         },
         {
             "name": "symfony/debug-pack",
-            "version": "v1.0.4",
+            "version": "v1.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/debug-pack.git",
-                "reference": "2da9b0ea7a733fc29ec3e72139751fd8d2582887"
+                "reference": "ae4b15596788f9592f67f8615398671bf3f796e4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/debug-pack/zipball/2da9b0ea7a733fc29ec3e72139751fd8d2582887",
-                "reference": "2da9b0ea7a733fc29ec3e72139751fd8d2582887",
+                "url": "https://api.github.com/repos/symfony/debug-pack/zipball/ae4b15596788f9592f67f8615398671bf3f796e4",
+                "reference": "ae4b15596788f9592f67f8615398671bf3f796e4",
                 "shasum": ""
             },
             "require": {
@@ -2345,7 +2345,6 @@
                 "php": "^7.0",
                 "symfony/debug-bundle": "^3.3|^4.0",
                 "symfony/monolog-bundle": "^3.0",
-                "symfony/phpunit-bridge": "^3.3|^4.0",
                 "symfony/profiler-pack": "^1.0",
                 "symfony/var-dumper": "^3.3|^4.0"
             },
@@ -2355,7 +2354,7 @@
                 "MIT"
             ],
             "description": "A debug pack for Symfony projects",
-            "time": "2017-12-12T01:47:04+00:00"
+            "time": "2018-03-29T13:53:44+00:00"
         },
         {
             "name": "symfony/dependency-injection",
@@ -3287,7 +3286,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/maker-bundle/zipball/9db72995231c12c701249f07743c0591ccf70e73",
                 "reference": "9db72995231c12c701249f07743c0591ccf70e73",
-
                 "shasum": ""
             },
             "require": {
@@ -3335,7 +3333,6 @@
                 "scaffolding"
             ],
             "time": "2018-03-14T01:02:47+00:00"
-
         },
         {
             "name": "symfony/monolog-bridge",
@@ -3547,72 +3544,6 @@
             ],
             "description": "A pack for the Doctrine ORM",
             "time": "2017-12-12T01:47:50+00:00"
-        },
-        {
-            "name": "symfony/phpunit-bridge",
-            "version": "v4.0.6",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/phpunit-bridge.git",
-                "reference": "14ffbbe2a72d0f6339b24eb830dd38cf63ba6630"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/phpunit-bridge/zipball/14ffbbe2a72d0f6339b24eb830dd38cf63ba6630",
-                "reference": "14ffbbe2a72d0f6339b24eb830dd38cf63ba6630",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3"
-            },
-            "conflict": {
-                "phpunit/phpunit": "<4.8.35|<5.4.3,>=5.0"
-            },
-            "suggest": {
-                "ext-zip": "Zip support is required when using bin/simple-phpunit",
-                "symfony/debug": "For tracking deprecated interfaces usages at runtime with DebugClassLoader"
-            },
-            "bin": [
-                "bin/simple-phpunit"
-            ],
-            "type": "symfony-bridge",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "4.0-dev"
-                },
-                "thanks": {
-                    "name": "phpunit/phpunit",
-                    "url": "https://github.com/sebastianbergmann/phpunit"
-                }
-            },
-            "autoload": {
-                "files": [
-                    "bootstrap.php"
-                ],
-                "psr-4": {
-                    "Symfony\\Bridge\\PhpUnit\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolas Grekas",
-                    "email": "p@tchwork.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony PHPUnit Bridge",
-            "homepage": "https://symfony.com",
-            "time": "2018-02-19T16:50:22+00:00"
         },
         {
             "name": "symfony/polyfill-apcu",
@@ -4391,7 +4322,6 @@
             "time": "2018-02-17T14:55:25+00:00"
         },
         {
-
             "name": "symfony/swiftmailer-bundle",
             "version": "v3.2.1",
             "source": {
@@ -4429,7 +4359,6 @@
             },
             "autoload": {
                 "psr-4": {
-
                     "Symfony\\Bundle\\SwiftmailerBundle\\": ""
                 },
                 "exclude-from-classmap": [
@@ -4442,7 +4371,6 @@
             ],
             "authors": [
                 {
-
                     "name": "Symfony Community",
                     "homepage": "http://symfony.com/contributors"
                 },
@@ -4454,6 +4382,61 @@
             "description": "Symfony SwiftmailerBundle",
             "homepage": "http://symfony.com",
             "time": "2018-03-08T16:39:26+00:00"
+        },
+        {
+            "name": "symfony/templating",
+            "version": "v3.4.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/templating.git",
+                "reference": "6ac0bb6dea36053b97027dae0bf3888e432c1f74"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/templating/zipball/6ac0bb6dea36053b97027dae0bf3888e432c1f74",
+                "reference": "6ac0bb6dea36053b97027dae0bf3888e432c1f74",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.5.9|>=7.0.8"
+            },
+            "require-dev": {
+                "psr/log": "~1.0"
+            },
+            "suggest": {
+                "psr/log": "For using debug logging in loaders"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Templating\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Templating Component",
+            "homepage": "https://symfony.com",
+            "time": "2018-01-03T07:37:34+00:00"
         },
         {
             "name": "symfony/translation",
@@ -5143,7 +5126,6 @@
                 "templating"
             ],
             "time": "2018-03-20T04:31:17+00:00"
-
         },
         {
             "name": "vich/uploader-bundle",
