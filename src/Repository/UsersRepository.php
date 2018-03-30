@@ -30,6 +30,36 @@ class UsersRepository extends ServiceEntityRepository implements UserLoaderInter
             ->getOneOrNullResult();
     }
 
+    function findByTraining($training){
+
+        $query = $this->createQueryBuilder('a')
+            ->select('a')
+            ->leftJoin('a.training', 'c')
+            ->addSelect('c');
+
+        $query = $query->add('where', $query->expr()->in('c', ':c'))
+            ->setParameter('c', $training)
+            ->getQuery()
+            ->getResult();
+
+        return $query;
+    }
+
+    function findByEvent($event){
+
+        $query = $this->createQueryBuilder('a')
+            ->select('a')
+            ->leftJoin('a.event', 'c')
+            ->addSelect('c');
+
+        $query = $query->add('where', $query->expr()->in('c', ':c'))
+            ->setParameter('c', $event)
+            ->getQuery()
+            ->getResult();
+
+        return $query;
+    }
+
     /*
     public function findBySomething($value)
     {

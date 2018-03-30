@@ -16,10 +16,20 @@
         <a href="../register">S'inscrire</a>
         {% endif %}
         {% if is_granted('ROLE_USER') %}
-            <a href="../logout">Deco</a>
+            <a href="../profil">Mon profil</a>
+            {% if is_granted('ROLE_ADMIN') %}
+                <a href="../admin">Administration</a>
+            {% endif %}
+            <a href="../logout">Déconnexion</a>
         {% endif %}
     </nav>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
+
+    {% for msg in app.session.flashBag.get('success') %}
+        <div class="alert alert-success">
+            {{ msg }}
+        </div>
+    {% endfor %}
     </body>
 </html>

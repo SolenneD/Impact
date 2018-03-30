@@ -24,7 +24,7 @@ class Coach
     /**
      * @var string
      * @Assert\Image()
-     * @ORM\column(name="image", type="string", length=255)
+     * @ORM\column(name="image", type="string", length=255, nullable=true)
      */
     private $image;
     /**
