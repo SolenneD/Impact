@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -58,6 +59,12 @@ class Users implements UserInterface
     protected $training;
 
     /**
+     * @ORM\ManyToMany(targetEntity="Event")
+     * @ORM\JoinTable(name="users_event",)
+     */
+    protected $event;
+
+    /**
      * @ORM\Column(name="is_active", type="boolean")
      */
     private $isActive;
@@ -77,6 +84,8 @@ class Users implements UserInterface
         $this->isActive = true;
         // may not be needed, see section on salt below
         // $this->salt = md5(uniqid('', true));
+        $this->training = new ArrayCollection();
+        $this->event = new ArrayCollection();
     }
 
     /**
@@ -199,12 +208,40 @@ class Users implements UserInterface
         return $this->training;
     }
 
-    /**
-     * @param mixed $training
-     */
-    public function setTraining($training)
+//    /**
+//     * @param mixed $training
+//     */
+//    public function setTraining($training)
+//    {
+//        $this->training = $training;
+//    }
+
+    public function addTraining(Training $training)
     {
-        $this->training = $training;
+        $this->training[] = $training;
+    }
+
+    public function removeTraining(Training $training)
+    {
+        $this->training->removeElement($training);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEvent()
+    {
+        return $this->event;
+    }
+
+    public function addEvent(Event $event)
+    {
+        $this->event[] = $event;
+    }
+
+    public function removeEvent(Event $event)
+    {
+        $this->event->removeElement($event);
     }
 
     /**
