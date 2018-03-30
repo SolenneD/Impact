@@ -7,6 +7,21 @@
     <p>Prénom : {{ user.username }}</p>
     <p>Nom : {{ user.lastname }}</p>
 
+
+    <h3>Mes cours</h3>
+    <p>
+        {% for training in trainings %}
+            {{ training.title }} {{ training.day|date('Dd') }}<br>
+        {% endfor %}
+    </p>
+
+    <h3>Mes évènements</h3>
+    <p>
+        {% for event in events %}
+            {{ event.title }} {{ event.day|date('Dd') }}<br>
+        {% endfor %}
+    </p>
+
     <a href="{{ path('profil_edit') }}">Modifier mes informations</a>
 
 

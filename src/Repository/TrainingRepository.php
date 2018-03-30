@@ -19,6 +19,7 @@ class TrainingRepository extends ServiceEntityRepository
         parent::__construct($registry, Training::class);
     }
 
+
     /*
     public function findBySomething($value)
     {

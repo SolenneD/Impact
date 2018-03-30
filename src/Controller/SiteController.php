@@ -50,38 +50,30 @@ class SiteController extends Controller
     {
         $entityManager = $this->getDoctrine()->getManager();
         $training = $entityManager->getRepository(Training::class)->find($idTraining);
-        $user= $this->getUser();
-        $user->addTraining($training); // ajout du user au cours (ajout dans la table users_training)
-        $entityManager->persist($user);
-        $entityManager->flush();
+        $user = $this->getUser();
+        $userTraining = $user->getTraining();
 
-        $users= $usersRepository->findByTraining($idTraining);//avoir toutes les personnes inscrite
+        //$users= $usersRepository->findByTraining($idTraining);//avoir toutes les personnes inscrite
 
-        /*return $this->render('site/reservation.html.twig', [
-            'cours'=>$training,
-            'user'=>$user,
-            'users'=>$users,
-            'controller_name' => 'SiteController',
-        ]);*/
+        $userInscrit = false;
 
-        $this->addFlash('success', 'Réservé');
-        return $this->redirectToRoute('training');
-    }
-
-    /**
-     * Adds a flash message to the current session for type.
-     *
-     * @param string $type    The type
-     * @param string $message The message
-     *
-     * @throws \LogicException
-     */
-    protected function addFlash($type, $message)
-    {
-        if (!$this->container->has('session')) {
-            throw new \LogicException('You can not use the addFlash method if sessions are disabled.');
+        foreach ($userTraining as $value)
+        {
+            if($value == $training){
+                $userInscrit = true;
+            }
         }
-        $this->container->get('session')->getFlashBag()->add($type, $message);
+
+        if($userInscrit == false){
+            $user->addTraining($training); // ajout du user au cours (ajout dans la table users_training)
+            $entityManager->persist($user);
+            $entityManager->flush();
+            $this->addFlash('success', 'Réservé');
+            return $this->redirectToRoute('training');
+        }else{
+            $this->addFlash('error', 'Vous êtes déjà inscrit');
+            return $this->redirectToRoute('training');
+        }
     }
 
     /**
@@ -92,18 +84,30 @@ class SiteController extends Controller
         $entityManager = $this->getDoctrine()->getManager();
         $event = $entityManager->getRepository(Event::class)->find($idEvent);
         $user= $this->getUser();
-        $user->addEvent($event); //ajout du user à l'event (ajout dans la table users_event)
-        $entityManager->persist($user);
-        $entityManager->flush();
+        $userEvent = $user->getEvent();
 
-        $users= $usersRepository->findByEvent($idEvent);//avoir toutes les personnes inscrite
+        //$users= $usersRepository->findByEvent($idEvent);//avoir toutes les personnes inscrite
 
-        return $this->render('site/reservation.html.twig', [
-            'cours'=>$event,
-            'user'=>$user,
-            'users'=>$users,
-            'controller_name' => 'SiteController',
-        ]);
+        $userInscrit = false;
+
+        foreach ($userEvent as $value)
+        {
+            if($value == $event){
+                $userInscrit = true;
+            }
+        }
+
+        if($userInscrit == false){
+            $user->addEvent($event); //ajout du user à l'event (ajout dans la table users_event)
+            $entityManager->persist($user);
+            $entityManager->flush();
+            $this->addFlash('success', 'Réservé');
+            return $this->redirectToRoute('event');
+        }else{
+            $this->addFlash('error', 'Vous êtes déjà inscrit');
+            return $this->redirectToRoute('event');
+        }
+
     }
 
     /**
@@ -298,4 +302,19 @@ class SiteController extends Controller
         return $this->redirectToRoute('gestiondesevenements');
     }
 
+    /**
+     * Adds a flash message to the current session for type.
+     *
+     * @param string $type    The type
+     * @param string $message The message
+     *
+     * @throws \LogicException
+     */
+    protected function addFlash($type, $message)
+    {
+        if (!$this->container->has('session')) {
+            throw new \LogicException('You can not use the addFlash method if sessions are disabled.');
+        }
+        $this->container->get('session')->getFlashBag()->add($type, $message);
+    }
 }
