@@ -5,7 +5,7 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
         <style>
-            .alert{display: inline-block; padding: 5px 10px; }
+            .alert{display: inline-block; padding: 5px 10px;}
             .alert-success{background: #00a65a 2px}
             .alert-error{ background: #9f191f}
         </style>
@@ -31,16 +31,5 @@
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
 
-    {% for msg in app.session.flashBag.get('success') %}
-        <div class="alert alert-success">
-            {{ msg }}
-        </div>
-    {% endfor %}
-
-    {% for msg in app.session.flashBag.get('error') %}
-        <div class="alert alert-error">
-            {{ msg }}
-        </div>
-    {% endfor %}
     </body>
 </html>

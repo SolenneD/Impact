@@ -16,7 +16,17 @@
 <div class="example-wrapper">
     <h1>Hello {{ controller_name }}! ✅</h1>
     <p>C'est la page des cours sa mère</p>
+    {% for msg in app.session.flashBag.get('success') %}
+        <div class="alert alert-success">
+            {{ msg }}
+        </div>
+    {% endfor %}
 
+    {% for msg in app.session.flashBag.get('error') %}
+        <div class="alert alert-error">
+            {{ msg }}
+        </div>
+    {% endfor %}
     <table>
         <tr>
             <th>Cours</th>
