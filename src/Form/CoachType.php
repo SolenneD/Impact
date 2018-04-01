@@ -37,7 +37,6 @@ class CoachType extends AbstractType
             ])
             ->add('image', FileType::class, array(
                 'label' => 'Inserer une image'))
-
         ;
     }
 

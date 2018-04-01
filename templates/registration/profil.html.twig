@@ -4,6 +4,7 @@
 {% block body %}
     <h1>Profil</h1>
 
+    <td><img src="{{ vich_uploader_asset(user , 'imageFile') }}" /></td>
     <p>{{ user.username }}</p>
     <p>{{ user.lastname }}</p>
 

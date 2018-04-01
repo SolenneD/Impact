@@ -43,7 +43,10 @@ class RegistrationController extends Controller
      */
     public function profil (UsersRepository $usersRepository)
     {
-        $user = $this->getUser();
+        $userConnected = $this->getUser();
+
+        $entityManager = $this->getDoctrine()->getManager();
+        $user = $entityManager->getRepository(Users::class)->find($userConnected->getId());
 
         return $this->render('registration/profil.html.twig', ['user'=>$user]);
     }
@@ -53,7 +56,11 @@ class RegistrationController extends Controller
      */
     public function profilEditAction (Request $request, UserPasswordEncoderInterface $encoder)
     {
-        $user = $this->getUser();
+        $userConnected = $this->getUser();
+
+        $entityManager = $this->getDoctrine()->getManager();
+        $user = $entityManager->getRepository(Users::class)->find($userConnected->getId());
+
         $form = $this->createForm(ProfilEditType::class, $user);
         $form->handleRequest($request);
 
@@ -71,11 +78,8 @@ class RegistrationController extends Controller
             $em->flush();
 
             return $this->redirectToRoute('profil');
-
-
         }
 
         return $this->render('registration/profiledit.html.twig', ['form'=>$form->createView()]);
     }
-
 }

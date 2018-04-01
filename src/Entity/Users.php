@@ -8,13 +8,16 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\User;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UsersRepository")
  * @UniqueEntity(fields="email", message="Email already taken")
  * @UniqueEntity(fields="username", message="Username already taken")
+ * @Vich\Uploadable
  */
-class Users implements UserInterface
+class Users implements UserInterface, \Serializable
 {
     /**
      * @ORM\Id()
@@ -24,10 +27,28 @@ class Users implements UserInterface
     private $id;
 
     /**
+     * @var string
+     * @Assert\Image()
+     * @ORM\column(name="image", type="string", length=255, nullable=true)
+     */
+    protected $image;
+
+    /**
+     * @Vich\UploadableField(mapping="users_images", fileNameProperty="image")
+     * @var File
+     */
+    protected $imageFile;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     * @var \DateTime
+     */
+    protected $updatedAt;
+
+    /**
      * @ORM\Column(type="string", unique=true)
      */
     protected $username;
-
 
     /**
      * @ORM\Column(type="string")
@@ -46,12 +67,6 @@ class Users implements UserInterface
      * @ORM\Column(type="string", length=64, unique=true)
      */
     protected $password;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="Objectif")
-     * @ORM\JoinTable(name="users_objectifs",)
-     */
-    protected $goals;
 
     /**
      * @ORM\ManyToMany(targetEntity="Training")
@@ -188,34 +203,10 @@ class Users implements UserInterface
     /**
      * @return mixed
      */
-    public function getGoals()
-    {
-        return $this->goals;
-    }
-
-    /**
-     * @param mixed $goals
-     */
-    public function setGoals($goals)
-    {
-        $this->goals = $goals;
-    }
-
-    /**
-     * @return mixed
-     */
     public function getTraining()
     {
         return $this->training;
     }
-
-//    /**
-//     * @param mixed $training
-//     */
-//    public function setTraining($training)
-//    {
-//        $this->training = $training;
-//    }
 
     public function addTraining(Training $training)
     {
@@ -301,7 +292,6 @@ class Users implements UserInterface
         $this->isAdmin = $isAdmin;
     }
 
-
     /**
      * Returns the salt that was originally used to encode the password.
      *
@@ -333,6 +323,7 @@ class Users implements UserInterface
             $this->username,
             $this->password,
             $this->roles,
+            $this->image
             // see section on salt below
             // $this->salt,
         ));
@@ -346,9 +337,62 @@ class Users implements UserInterface
             $this->username,
             $this->password,
             $this->roles,
+            $this->image
             // see section on salt below
             // $this->salt
             ) = unserialize($serialized);
+    }
+
+    /**
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param string $image
+     */
+    public function setImage(string $image)
+    {
+        $this->image = $image;
+    }
+
+    /**
+     * @return File|null
+     */
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * @param File $imageFile
+     */
+    public function setImageFile(File $image = null)
+    {
+        $this->imageFile = $image;
+
+        if ($image) {
+            $this->updatedAt = new \DateTime('now');
+        }
+    }
+
+    /**
+     * @return \DateTime|null
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * @param \DateTime $updatedAt
+     */
+    public function setUpdatedAt(\DateTime $updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
     }
 
 }

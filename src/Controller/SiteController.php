@@ -13,7 +13,6 @@ use App\Repository\CoachRepository;
 use App\Repository\EventRepository;
 use App\Repository\TrainingRepository;
 use App\Repository\UsersRepository;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -26,6 +25,9 @@ class SiteController extends Controller
      */
     public function index()
     {
+
+        dump($this->getUser());
+        dump("index");
         return $this->render('site/index.html.twig', [
             'controller_name' => 'SiteController',
         ]);
@@ -224,9 +226,6 @@ class SiteController extends Controller
 
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){ //si form envoyer et valide
-            /**
-             * @var UploadedFile $file
-             */
             $file=$coach->getImage();
             $fileName = md5(uniqid()).'.'.$file->guessExtension();
 
