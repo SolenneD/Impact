@@ -22,7 +22,7 @@ easy_admin:
                     - { property: 'training' }
             form:
                 fields:
-                    - { property: 'imageFile', type: 'file' }
+                    - { property: 'imageFile', type: 'vich_image' }
                     - { property: 'name' }
                     - { property: 'lastname' }
                     - { property: 'email' }
