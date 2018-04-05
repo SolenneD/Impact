@@ -4322,6 +4322,39 @@
             "time": "2018-02-17T14:55:25+00:00"
         },
         {
+<<<<<<< HEAD
+            "name": "symfony/templating",
+            "version": "v3.4.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/templating.git",
+                "reference": "6ac0bb6dea36053b97027dae0bf3888e432c1f74"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/templating/zipball/6ac0bb6dea36053b97027dae0bf3888e432c1f74",
+                "reference": "6ac0bb6dea36053b97027dae0bf3888e432c1f74",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.5.9|>=7.0.8"
+            },
+            "require-dev": {
+                "psr/log": "~1.0"
+            },
+            "suggest": {
+                "psr/log": "For using debug logging in loaders"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.4-dev"
+                }
+            }
+        },
+        {
+=======
+>>>>>>> 2031fb82e04521670e5cf1923df6203429e5757e
             "name": "symfony/swiftmailer-bundle",
             "version": "v3.2.1",
             "source": {

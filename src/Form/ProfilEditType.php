@@ -12,12 +12,14 @@ namespace App\Form;
 use App\Entity\Users;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class ProfilEditType extends AbstractType
 {
@@ -40,8 +42,10 @@ class ProfilEditType extends AbstractType
                 'label' => "mdp profil",
                 'first_options' => array('label' => 'Modifier le mot de passe'),
                 'second_options' => array('label' => 'Répéter le mot de passe')
-
             ])
+            ->add('imageFile', VichImageType::class, array(
+                'label' => 'Image(JPG)'
+            ))
         ;
     }
 

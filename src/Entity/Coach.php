@@ -165,7 +165,7 @@ class Coach
 
 
     /**
-     * @return \File|null
+     * @return File|null
      */
     public function getImageFile()
     {
