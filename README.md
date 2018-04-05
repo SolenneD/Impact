@@ -37,3 +37,11 @@ Si le composer est installé
 **Lancer le serveur**
 
 `$ php bin/console server:start`
+
+**A ajouter dans le .env**
+###> symfony/swiftmailer-bundle ###
+# For Gmail as a transport, use: "gmail://username:password@localhost"
+# For a generic SMTP server, use: "smtp://localhost:25?encryption=&auth_mode="
+# Delivery is disabled by default via "null://localhost"
+MAILER_URL=gmail://impactiesa:b3deviesa@localhost
+###< symfony/swiftmailer-bundle ###
