@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Users;
 use App\Form\ProfilEditType;
 use App\Form\UserType;
+use App\Repository\TrainingRepository;
 use App\Repository\UsersRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -41,14 +42,17 @@ class RegistrationController extends Controller
     /**
      * @Route("/profil", name="profil")
      */
-    public function profil (UsersRepository $usersRepository)
+    public function profil ()
     {
-        $userConnected = $this->getUser();
 
-        $entityManager = $this->getDoctrine()->getManager();
-        $user = $entityManager->getRepository(Users::class)->find($userConnected->getId());
-
-        return $this->render('registration/profil.html.twig', ['user'=>$user]);
+        $user = $this->getUser();
+        $trainings = $user->getTraining();
+        $events = $user->getEvent();
+        return $this->render('registration/profil.html.twig', [
+            'user'=>$user,
+            'trainings' => $trainings,
+            'events' => $events,
+        ]);
     }
 
     /**

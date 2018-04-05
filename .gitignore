@@ -1,17 +1,9 @@
-.DS_Store
-
 ###> symfony/framework-bundle ###
 .env
 /public/bundles/
 /var/
 /vendor/
 ###< symfony/framework-bundle ###
-
-###> symfony/phpunit-bridge ###
-.phpunit
-/phpunit.xml
-###< symfony/phpunit-bridge ###
-
 .idea/
 ###> symfony/web-server-bundle ###
 .web-server-pid

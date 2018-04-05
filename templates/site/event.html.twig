@@ -13,12 +13,22 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-    <p>C'est la page des events sa mère</p>
+    <h1>Événements </h1>
+
+    {% for msg in app.session.flashBag.get('success') %}
+        <div class="alert alert-success">
+            {{ msg }}
+        </div>
+    {% endfor %}
+
+    {% for msg in app.session.flashBag.get('error') %}
+        <div class="alert alert-error">
+            {{ msg }}
+        </div>
+    {% endfor %}
 
     <table>
         <tr>
-
             <th>Nom</th>
             <th>Date</th>
             <th>Heure</th>
@@ -29,7 +39,7 @@
         {% for event in events %}
             <tr>
                 <td>{{ event.title }}</td>
-                <td>{{ event.day|date('d') }}</td>
+                <td>{{ event.day|date('Dd') }}</td>
                 <td>{{ event.hour|date('H:i') }}</td>
                 <td>{{ event.description }}</td>
                 <td  {{ event.isCanceled ? 'style="background:red"' : 'style="background:green"'}} >{{ event.isCanceled ? 'Annulé' : 'Disponible'}}</td>

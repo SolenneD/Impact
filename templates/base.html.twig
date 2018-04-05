@@ -4,6 +4,16 @@
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
+        <link rel="stylesheet" href="{{ asset('../assets/css/main.css') }}" />
+        <link rel="stylesheet" href="{{ asset('../assets/css/font-awesome.min.css') }}" />
+
+        <style>
+            .alert{display: inline-block; padding: 5px 10px;}
+            .alert-success{background: #00a65a 2px}
+            .alert-error{ background: #9f191f}
+        </style>
+
+
     </head>
     <body>
     <nav>
@@ -26,10 +36,5 @@
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
 
-    {% for msg in app.session.flashBag.get('success') %}
-        <div class="alert alert-success">
-            {{ msg }}
-        </div>
-    {% endfor %}
     </body>
 </html>
