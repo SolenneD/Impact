@@ -28,7 +28,6 @@ class Users implements UserInterface, \Serializable
 
     /**
      * @var string
-     * @Assert\Image()
      * @ORM\column(name="image", type="string", length=255, nullable=true)
      */
     protected $image;
@@ -354,7 +353,8 @@ class Users implements UserInterface, \Serializable
     /**
      * @param string $image
      */
-    public function setImage(string $image)
+    public function setImage(
+        $image = null)
     {
         $this->image = $image;
     }

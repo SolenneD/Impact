@@ -9,7 +9,7 @@
 namespace App\Event;
 
 
-use App\Entity\Training;
+use App\Entity\Event;
 use JavierEguiluz\Bundle\EasyAdminBundle\Event\EasyAdminEvents;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\EventDispatcher\GenericEvent;
@@ -34,7 +34,7 @@ class MailEvent implements EventSubscriberInterface
 
         $entity = $event->getSubject();
 
-            if ($entity instanceof Training) {
+            if ($entity instanceof Event) {
                 // mail d'annulation
                 $message = (new \Swift_Message('Hello Email'))
                     ->setFrom('meride.monica@gmail.com')
@@ -44,7 +44,7 @@ class MailEvent implements EventSubscriberInterface
                     )
                 ;
 
-                //$this->mailer->send($message);
+                $this->mailer->send($message);
                 //dump($message);die;
             }
     }
