@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+    </head>
+    <body>
+        {# templates/email_training.html.twig #}
+        <h3>Annulation</h3>
+
+        <p>Malheuresement le cours de {{ event.title }} ne pourra pas être ausssurer le {{ event.day|date('d') }}
+            à {{ event.hour|date('H:i') }}</p>
+
+    </body>
+</html>

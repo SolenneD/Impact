@@ -26,9 +26,8 @@ class SiteController extends Controller
     public function index()
     {
 
-        dump($this->getUser());
-        dump("index");
-        return $this->render('site/index.html.twig', [
+
+        return $this->render('blog/index.html.twig', [
             'controller_name' => 'SiteController',
         ]);
     }
@@ -205,17 +204,6 @@ class SiteController extends Controller
 //        if($training->getIsCanceled() == 0){} //vérifier si le isCanceled est à 0
         $training->setIsCanceled(1);
         $entityManager->flush();
-
-        // mail d'annulation
-        $message = (new \Swift_Message('Hello Email'))
-            ->setFrom('meride.monica@gmail.com')
-            ->setTo('monica.meride@outlook.fr')
-            ->setBody(
-               'test'
-            )
-        ;
-
-        //$mailer->send($message);
 
         return $this->redirectToRoute('gestiondescours');
     }
