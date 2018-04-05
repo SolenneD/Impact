@@ -41,7 +41,7 @@ class MailEvent implements EventSubscriberInterface
         $entity = $event->getSubject();
         $idEntity = $entity->getId();
 
-        if ($entity instanceof Event) {
+        if ($entity instanceof Event && $entity->getisCanceled() == 1) {
             $users = $this->usersRepository->findByEvent($idEntity);
             $usersEmail = [];
             foreach($users as $user) {
@@ -66,7 +66,7 @@ class MailEvent implements EventSubscriberInterface
 
             $this->mailer->send($message);
             //dump($message);die;
-        }elseif ($entity instanceof Training){
+        }elseif ($entity instanceof Training && $entity->getisCanceled() == 1){
             $users = $this->usersRepository->findByTraining($idEntity);
             $usersEmail = [];
             foreach($users as $user) {
