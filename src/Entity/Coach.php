@@ -214,4 +214,8 @@ class Coach
     {
         $this->updatedAt = $updatedAt;
     }
+
+    public function __toString() {
+        return $this->name;
+    }
 }

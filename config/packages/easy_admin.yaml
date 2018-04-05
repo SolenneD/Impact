@@ -39,6 +39,7 @@ easy_admin:
                     - { property: 'periode', type: 'string' }
                     - { property: 'intensite', type: 'integer' }
                     - { property: 'coach' }
+                    - { property: 'isCanceled', type: 'boolean' }
             show:
                 fields:
                     - { property: 'id', type: 'integer' }
@@ -48,6 +49,7 @@ easy_admin:
                     - { property: 'periode', type: 'string' }
                     - { property: 'intensite', type: 'integer' }
                     - { property: 'coach', type: 'string' }
+                    - { property: 'isCanceled', type: 'boolean' }
             form:
                 fields:
                     - { property: 'title' }
@@ -56,6 +58,7 @@ easy_admin:
                     - { property: 'periode' }
                     - { property: 'intensite' }
                     - { property: 'coach' }
+                    - { property: 'isCanceled' }
         Users:
             class: App\Entity\Users
             list:

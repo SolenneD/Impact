@@ -181,4 +181,5 @@ class Training
     public function __toString() {
         return $this->title;
     }
+
 }
