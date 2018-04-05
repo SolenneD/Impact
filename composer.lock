@@ -4322,7 +4322,6 @@
             "time": "2018-02-17T14:55:25+00:00"
         },
         {
-<<<<<<< HEAD
             "name": "symfony/templating",
             "version": "v3.4.6",
             "source": {
@@ -4353,8 +4352,6 @@
             }
         },
         {
-=======
->>>>>>> 2031fb82e04521670e5cf1923df6203429e5757e
             "name": "symfony/swiftmailer-bundle",
             "version": "v3.2.1",
             "source": {
