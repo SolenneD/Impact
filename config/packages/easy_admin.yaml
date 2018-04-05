@@ -78,7 +78,7 @@ easy_admin:
                     - { property: 'training' }
             form:
                 fields:
-                    - { property: 'imageFile', type: 'vich_file' }
+                    - { property: 'imageFile', type: 'vich_image' }
                     - { property: 'username' }
                     - { property: 'lastname' }
                     - { property: 'email' }
@@ -106,3 +106,28 @@ easy_admin:
                     - { property: 'lastname' }
                     - { property: 'email' }
                     - { property: 'password' }
+        Event:
+            class: App\Entity\Event
+            list:
+                fields:
+                    - { property: 'id', type: 'integer' }
+                    - { property: 'title', type: 'string' }
+                    - { property: 'day', type: 'date' }
+                    - { property: 'hour', type: 'time' }
+                    - { property: 'description', type: 'text' }
+                    - { property: 'isCanceled', type: 'boolean' }
+            show:
+                fields:
+                    - { property: 'id', type: 'integer' }
+                    - { property: 'title', type: 'string' }
+                    - { property: 'day', type: 'date' }
+                    - { property: 'hour', type: 'time' }
+                    - { property: 'description', type: 'text' }
+                    - { property: 'isCanceled', type: 'boolean' }
+            form:
+                fields:
+                    - { property: 'title' }
+                    - { property: 'day' }
+                    - { property: 'hour' }
+                    - { property: 'description' }
+                    - { property: 'isCanceled' }

@@ -26,9 +26,8 @@ class SiteController extends Controller
     public function index()
     {
 
-        dump($this->getUser());
-        dump("index");
-        return $this->render('site/index.html.twig', [
+
+        return $this->render('blog/index.html.twig', [
             'controller_name' => 'SiteController',
         ]);
     }

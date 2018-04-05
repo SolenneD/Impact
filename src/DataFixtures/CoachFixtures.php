@@ -26,12 +26,14 @@ class CoachFixtures extends Fixture
     {
         // TODO: Implement load() method.
         $i = 1;
-        while($i < 11){
+        while($i < 7){
             $coach = new Coach();
-            $coach->setName("Noms de famille du coach n°".$i);
+            $coach->setName("Nom de famille du coach n°".$i);
             $coach->setLastname("Prénom du coach n°".$i);
             $coach->setEmail("email".$i."@mail.fr");
-            $coach->setBio("Bio du coach n°".$i);
+            $coach->setBio("Description du coach n°".$i);
+            $coach->setImage("Image".$i);
+
 
             $manager->persist($coach);
             $i++;

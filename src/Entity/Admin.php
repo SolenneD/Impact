@@ -10,8 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
 class Admin
 {
     /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
+     * @ORM\Id
+     * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
     private $id;
@@ -19,17 +19,14 @@ class Admin
      * @ORM\Column(type="string")
      */
     protected $name;
-
     /**
      * @ORM\Column(type="string")
      */
     protected $lastname;
-
     /**
      * @ORM\Column(type="string")
      */
     protected $email;
-
     /**
      * @ORM\Column(type="string")
      */
@@ -114,7 +111,6 @@ class Admin
     {
         $this->password = $password;
     }
-    // add your own fields
 
 
 }

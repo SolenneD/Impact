@@ -68,6 +68,10 @@ class RegistrationController extends Controller
         $form = $this->createForm(ProfilEditType::class, $user);
         $form->handleRequest($request);
 
+        if($form->isSubmitted()) {
+            dump($form->getData());
+        }
+
         if($form->isSubmitted() && $form->isValid()){
             /** @var Users $editUser */
             $editUser = $form->getData();

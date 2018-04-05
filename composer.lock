@@ -4322,50 +4322,17 @@
             "time": "2018-02-17T14:55:25+00:00"
         },
         {
-<<<<<<< HEAD
-            "name": "symfony/templating",
-            "version": "v3.4.6",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/templating.git",
-                "reference": "6ac0bb6dea36053b97027dae0bf3888e432c1f74"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/templating/zipball/6ac0bb6dea36053b97027dae0bf3888e432c1f74",
-                "reference": "6ac0bb6dea36053b97027dae0bf3888e432c1f74",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^5.5.9|>=7.0.8"
-            },
-            "require-dev": {
-                "psr/log": "~1.0"
-            },
-            "suggest": {
-                "psr/log": "For using debug logging in loaders"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.4-dev"
-                }
-            }
-        },
-        {
-=======
->>>>>>> 2031fb82e04521670e5cf1923df6203429e5757e
             "name": "symfony/swiftmailer-bundle",
-            "version": "v3.2.1",
+            "version": "v3.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/swiftmailer-bundle.git",
-                "reference": "20e71c247a5a43ceb655db9712394d08c09b33ef"
+                "reference": "f1ba0552a9cd4df0191a58845fbd5541cf9eda2d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/swiftmailer-bundle/zipball/20e71c247a5a43ceb655db9712394d08c09b33ef",
-                "reference": "20e71c247a5a43ceb655db9712394d08c09b33ef",
+                "url": "https://api.github.com/repos/symfony/swiftmailer-bundle/zipball/f1ba0552a9cd4df0191a58845fbd5541cf9eda2d",
+                "reference": "f1ba0552a9cd4df0191a58845fbd5541cf9eda2d",
                 "shasum": ""
             },
             "require": {
@@ -4414,7 +4381,7 @@
             ],
             "description": "Symfony SwiftmailerBundle",
             "homepage": "http://symfony.com",
-            "time": "2018-03-08T16:39:26+00:00"
+            "time": "2018-04-03T16:29:41+00:00"
         },
         {
             "name": "symfony/templating",
